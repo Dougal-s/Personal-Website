@@ -4,20 +4,32 @@
 	<link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="header.css">
 	<link rel="stylesheet" href="footer.css">
+	<script>
+		function toggleMenubar() {
+			var header = document.getElementById('header-right')
+			if (header.style.display == "none")
+				header.style.display = "flex";
+			else
+				header.style.display = "none";
+		}
+	</script>
 	<title>Dougal Stewart</title>
 </header>
 
 <body>
-	<header class="header">
-		<a href=#default class="logo">
+	<div class="header">
+		<button id="menu-button" onclick="toggleMenubar()">
+			<img src="menu.svg" height=100%>
+		</button>
+		<a href=#projects class="logo">
 			<img src="logo full.svg" alt="logo" height=100%>
 		</a>
-		<div class="header-right">
+		<div id="header-right">
 			<a href=#projects>projects</a>
 			<a href=#music>music</a>
 			<a href=#about>about</a>
 		</div>
-	</header>
+	</div>
 
 	<div name="Projects">
 		<a id="projects" class="anchor"></a>
@@ -78,6 +90,22 @@
 					behavior: 'smooth'
 				});
 			});
+		});
+
+		var header = document.getElementById('header-right');
+		if (window.innerWidth > 45*parseFloat(getComputedStyle(document.documentElement).fontSize)) {
+			header.style.display = null;
+		} else {
+			header.style.display = "none";
+		}
+
+		window.addEventListener('resize', function(event) {
+			var header = document.getElementById('header-right');
+			if (window.innerWidth > 45*parseFloat(getComputedStyle(document.documentElement).fontSize)) {
+				header.style.display = null;
+			} else if (header.style.display == "") {
+					header.style.display = "none";
+			}
 		});
 	</script>
 </body>
