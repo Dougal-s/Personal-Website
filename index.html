@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<header>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="header.css">
+	<link rel="stylesheet" href="footer.css">
+	<title>Dougal Stewart</title>
+</header>
+
+<body>
+	<header class="header">
+		<a href=#default class="logo">
+			<img src="logo full.svg" alt="logo" height=100%>
+		</a>
+		<div class="header-right">
+			<a href=#projects>projects</a>
+			<a href=#music>music</a>
+			<a href=#about>about</a>
+		</div>
+	</header>
+
+	<div name="Projects">
+		<a id="projects" class="anchor"></a>
+		<h1>Projects</h1>
+		<div class="project-list">
+			<div id="Vkav" class="project-card">
+				<a href="https://github.com/Dougal-s/Vkav" style="background-image: url(Vkav.png)"></a>
+				<div class="project-info">
+					<h2>Vkav</h2>
+					<p>Vkav is a highly configurable cross platform audio visualiser written in c++.</p>
+					<a href="https://github.com/Dougal-s/Vkav">View on Github</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div name="Music">
+		<a id="music"  class="anchor"></a>
+		<h1>Music</h1>
+		<div class="music">
+			<h2>Latest Release</h2>
+			<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/736665838&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+		</div>
+	</div>
+
+	<div name="About-Me">
+		<a id="about"  class="anchor"></a>
+		<h1>About Me</h1>
+		<div class="about-me">
+			<p>I am a 15 year old programmer and producer from South Korea known under the alias Hunter_Brock.</p>
+		</div>
+	</div>
+
+	<footer id="footer">
+		<div id="footer-content">
+			<div id="footer-left">
+				<p>Dougal Stewart</p>
+				<a href="mailto:dougal.koji@gmail.com">dougal.koji@gmail.com</a>
+			</div>
+			<div id="footer-right">
+				<ul>
+					<li><a href="https://github.com/Dougal-s"><img src="icons/GitHub.png"><span>Dougal-s</span></a></li>
+					<li><a href="https://twitter.com/Hunter__Brock"><img src="icons/Twitter.svg"><span>Hunter__Brock</span></a></li>
+					<li><a href="https://soundcloud.com/hunter_brock"><img src="icons/Soundcloud.svg"><span>Hunter_Brock</span></a></li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- Enable smooth scrolling when clicking on an anchor link -->
+	<script>
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+
+				document.querySelector(this.getAttribute('href')).scrollIntoView({
+					behavior: 'smooth'
+				});
+			});
+		});
+	</script>
+</body>
+</html>

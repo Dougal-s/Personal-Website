@@ -1,0 +1,105 @@
+body {
+	font-family: roboto;
+	background-color: white;
+	padding: 0;
+	margin: 0;
+	bottom: 0;
+}
+
+/* default link settings */
+a {
+	color: rgb(25.5, 76.5, 153);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:active a:visited {
+	color: rgb(12.75, 51, 255);
+	text-decoration: underline;
+}
+
+body > div {
+	width: auto;
+	padding: 2em;
+}
+
+body > div > h1 {
+	margin: 0;
+	padding: 0;
+}
+
+.anchor {
+	top: -5em;
+	position: relative;
+}
+
+
+
+.project-list {
+	display: flex;
+	flex-direction: column;
+}
+
+.project-card {
+	max-width: 80em;
+	display: flex;
+	margin: 1em 0;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.project-card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+.project-card > a {
+	background-position: center;
+	background-size: cover;
+	flex-shrink: 0;
+	height: 10em;
+	width: 10em
+}
+
+.project-info {
+	height: 100%;
+	padding: 1em;
+	box-shadow: none;
+}
+
+.project-info > p {
+	height: 3em;
+}
+
+.project-info > h2 {
+	margin: 0;
+}
+
+
+@media screen and (max-width: 45em) {
+	/* Project List */
+	.project-list {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.project-card {
+		margin: 1em 1em 1em 0;
+		width: 16em;
+		height: 21em;
+		flex-direction: column;
+	}
+
+	.project-card > a {
+		width: 100%;
+	}
+
+	.project-card > a > img {
+		margin: 0 -0.889em;
+	}
+
+	.project-card p {
+		height: 4em;
+	}
+}

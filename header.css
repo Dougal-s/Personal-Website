@@ -1,0 +1,71 @@
+/* Header/Navigation bar */
+
+.header {
+	position: sticky;
+	top: 0;
+	background-color: #212121;
+	overflow: hidden;
+	width: 100%;
+	padding: 0;
+}
+
+.header > button {
+	display: none;
+}
+
+.header-right a {
+	float: left;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	padding: 0.9rem;
+	font-size: 1.2em;
+	line-height: 2.2rem;
+}
+
+.header a.logo {
+	height: 4em;
+}
+
+.header > a {
+	float: left;
+	display: inline-block;
+}
+
+.header-right a:hover {
+	background-color: #424242;
+}
+
+.header-right {
+	display: flex;
+	float: right;
+}
+
+@media screen and (max-width: 45em) {
+	/* Header/Navigation Bar */
+	.header > button {
+		width: 4em;
+		height: 4em;
+		margin: 0;
+		border: 0;
+		padding: 0;
+		display: inline;
+		float: right;
+	}
+
+	.header > button > img {
+		height: 100%;
+	}
+
+	.header a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+
+	.header-right {
+		width: 100%;
+		float: left;
+		flex-direction: column;
+	}
+}
