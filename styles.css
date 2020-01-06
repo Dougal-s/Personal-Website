@@ -54,12 +54,45 @@ body > div > h1 {
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
-.project-card > a {
+.project-image {
+	overflow: hidden;
+	margin: 0;
+	flex-shrink: 0;
+	height: auto;
+	width: auto;
+}
+
+.project-image > p {
+	position: relative;
+	z-index: 1;
+	display: none;
+	float:left;
+	box-sizing: border-box;
+	padding-top: 4.5em;
+	height: 10em;
+	margin: 0;
+	width: 100%;
+	text-align: center;
+	background-color: #21212180;
+	color: #ffffffE0;
+}
+
+.project-image:hover > p {
+	display: block;
+}
+
+.project-image > div {
+	display: block;
+	z-index: -1;
 	background-position: center;
 	background-size: cover;
 	flex-shrink: 0;
 	height: 10em;
 	width: 10em
+}
+
+.project-image:hover > div {
+	filter: blur(0.1em);
 }
 
 .project-info {
@@ -91,15 +124,7 @@ body > div > h1 {
 		flex-direction: column;
 	}
 
-	.project-card > a {
+	.project-image > div {
 		width: 100%;
-	}
-
-	.project-card > a > img {
-		margin: 0 -0.889em;
-	}
-
-	.project-card p {
-		height: 4em;
 	}
 }
