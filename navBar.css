@@ -1,6 +1,6 @@
 /* Header/Navigation bar */
 
-.header {
+.navBar {
 	position: sticky;
 	top: 0;
 	background-color: #212121;
@@ -13,7 +13,7 @@
 	display: none;
 }
 
-#header-right a {
+#navBar-right a {
 	float: left;
 	color: white;
 	text-decoration: none;
@@ -23,31 +23,31 @@
 	line-height: 2.2rem;
 }
 
-.header a.logo {
+.navBar a.logo {
 	height: 4em;
 }
 
-.header > a {
+.navBar > a {
 	float: left;
 	display: inline-block;
 }
 
-#header-right a:hover {
+#navBar-right a:hover {
 	background-color: #424242;
 }
 
-#header-right {
+#navBar-right {
 	display: flex;
 	float: right;
 }
 
 @media screen and (max-width: 45em) {
 	/* Header/Navigation Bar */
-	.header > .logo > img {
+	.navBar > .logo > img {
 		display: block;
 	}
 
-	.header > .logo {
+	.navBar > .logo {
 		width: auto;
 		display: inline-block;
 	}
@@ -74,17 +74,17 @@
 		background-color: #414141FF;
 	}
 
-	.header {
+	.navBar {
 		text-align: left;
 	}
 
-	#header-right {
+	#navBar-right {
 		width: 100%;
 		float: left;
 		flex-direction: column;
 	}
 
-	#header-right a {
+	#navBar-right a {
 		text-align: left;
 	}
 }
