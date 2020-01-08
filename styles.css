@@ -131,4 +131,8 @@ body > div > h1 {
 	.project-image > div {
 		width: 100%;
 	}
+
+	.project-info > p {
+		height: 4em;
+	}
 }
