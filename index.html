@@ -97,7 +97,7 @@
 		});
 
 		var header = document.getElementById('navBar-right');
-		if (window.innerWidth > 45*parseFloat(getComputedStyle(document.documentElement).fontSize)) {
+		if (window.innerWidth > 50*parseFloat(getComputedStyle(document.documentElement).fontSize)) {
 			header.style.display = null;
 		} else {
 			header.style.display = "none";
@@ -105,7 +105,7 @@
 
 		window.addEventListener('resize', function(event) {
 			var header = document.getElementById('navBar-right');
-			if (window.innerWidth > 45*parseFloat(getComputedStyle(document.documentElement).fontSize)) {
+			if (window.innerWidth > 50*parseFloat(getComputedStyle(document.documentElement).fontSize)) {
 				header.style.display = null;
 			} else if (header.style.display == "") {
 					header.style.display = "none";
