@@ -1,6 +1,7 @@
 /* Header/Navigation bar */
 
 .navBar {
+	z-index: 65535;
 	position: sticky;
 	top: 0;
 	background-color: #212121;
