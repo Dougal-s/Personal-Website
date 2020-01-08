@@ -1,0 +1,150 @@
+body {
+	font-family: roboto;
+	background-color: white;
+	padding: 0;
+	margin: 0;
+	bottom: 0;
+}
+
+/* default link settings */
+a {
+	color: rgb(51, 153, 255);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:active a:visited {
+	color: rgb(25.50, 102, 255);
+	text-decoration: underline;
+}
+
+.anchor {
+	top: -5em;
+	position: relative;
+}
+
+h1 {
+	font-weight: lighter;
+	font-size: 2.5em;
+}
+
+h2 {
+	font-weight: normal;
+}
+
+#content {
+	overflow: auto;
+	background-color: black;
+	color: white;
+	width: auto;
+	padding: 0em;
+	margin: 0;
+}
+
+div[name="about"] {
+	padding: 0 5em;
+	text-align: center;
+}
+
+div[name="about"] > h1 {
+	margin-bottom: 0.5em;
+}
+
+div[name="about"] > p {
+	margin-top: 0;
+}
+
+div[name="features"] > div {
+	margin-top: 4em;
+	width: 100%;
+	text-align: center;
+
+	display: grid;
+
+	grid-template-columns: 30% 30% 30%;
+	justify-content: center;
+	grid-column-gap: 2.5%;
+}
+
+div[name="features"] > div > div {
+	width: 100%;
+	width: auto;
+	background-color: #212121;
+	padding: 3em 2em;
+}
+
+div[name="features"] > div > div > h1 {
+	font-size: 2em;
+	font-weight: normal;
+	margin: 0 0 1em;
+}
+
+div[name="example"] {
+	text-align: center;
+	width: 70%;
+	margin: 2em auto 3em;
+}
+
+div[name="example"] > h1 {
+	margin: 2em 0 1em;
+}
+
+.example-wrapper {
+	overflow: hidden;
+	position: relative;
+	height: 0;
+	width: 100%;
+	padding-top: 56.25%;
+	margin: auto;
+}
+
+.example-wrapper > iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+div[name="downloads"] {
+	text-align: center;
+	width: auto;
+	margin: 3em 0 3em;
+}
+
+.install-links {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.install-links > li {
+	margin: 1em;
+	margin-top: 0;
+}
+
+.install-links > li > a {
+	border-radius: 2em;
+	display: inline-block;
+	text-decoration: none;
+	padding: 1em 2em;
+	color: white;
+	background-color: #1e90ff;
+}
+
+.install-links > li > a:hover {
+	background-color: #4169e1;
+}
+
+@media screen and (max-width: 50em) {
+	div[name="features"] > div {
+		grid-template-columns: 85%;
+		grid-row-gap: 2.5%;
+	}
+}

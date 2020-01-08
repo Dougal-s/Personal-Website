@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<header>
+	<link rel="shortcut icon" type="image/png" href="favicon.png">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="/header.css">
+	<link rel="stylesheet" href="/navBar.css">
+	<link rel="stylesheet" href="/footer.css">
+	<script>
+		function toggleMenubar() {
+			var header = document.getElementById('navBar-right')
+			if (header.style.display == "none")
+				header.style.display = "flex";
+			else
+				header.style.display = "none";
+		}
+	</script>
+	<title>Vkav</title>
+</header>
+
+<body>
+	<a id="top"></a>
+	<div id="header">
+		<div id="header-image"></div>
+		<h1 id="header-text">Vkav</h1>
+	</div>
+
+	<div class="navBar">
+		<button id="menu-button" onclick="toggleMenubar()">
+			<img src="/menu.svg" height=100%>
+		</button>
+		<a href="/" class="logo">
+			<img src="/logo full.svg" alt="logo" height=100%>
+		</a>
+		<div id="navBar-right">
+			<a href=#top>home</a>
+			<a href=#about>about</a>
+			<a href=#features>features</a>
+			<a href=#downloads>download</a>
+		</div>
+	</div>
+
+	<div id="content">
+		<div name="about">
+			<a id="about" class="anchor"></a>
+			<h1>About</h1>
+			<p>
+				Vkav is a highly configurable audio visualiser written in c++ for Linux.<br/>
+				Using Vulkan it visualises audio from the desktop or a user specified source in real time.
+			</p>
+			<p>*Windows and MacOS support had not been implemented*</p>
+		</div>
+
+		<div name="features">
+			<a id="features" class="anchor"></a>
+			<div>
+				<div>
+					<h1>Free and Open Source</h1>
+					<p>
+						Vkav is free and open source, meaning that you are free to
+						download, redistribute and modify the
+						<a href="https://github.com/Dougal-s/Vkav">source code</a>.
+						Futhermore, the software license allows you to use Vkav in commercial and/or proprietary software.
+					</p>
+					<p>The license can be found <a href="https://choosealicense.com/licenses/mit/">here</a>.</p>
+				</div>
+
+				<div>
+					<h1>Highly Customizable</h1>
+					<p>
+						Config files allow you to tweak anything from sample rates and buffer sizes to sensitivity and colour.
+						The selection of built in modules allow you to pick from several unique visuals.
+						If you can't find one to your taste then you can always make your own module by following the tutorial
+						<a href="https://github.com/Dougal-s/Vkav/wiki/Creating-Modules">here</a>.
+					</p>
+				</div>
+
+				<div>
+					<h1>Contribute</h1>
+					<p>
+						Development is currently active and reporting bugs is encouraged.
+						Bugs and features can be reported/requested <a href="https://github.com/Dougal-s/Vkav/issues">here</a>.
+					</p>
+					<p>
+						If you are a developer, you can
+						<a href="https://github.com/Dougal-s/Vkav/blob/master/CONTRIBUTING.md">contribute</a> to or
+						<a href="https://github.com/Dougal-s/Vkav/fork">fork</a> the github repository.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div name="example">
+			<h1>Example</h1>
+			<div class="example-wrapper">
+				<iframe src="https://www.youtube-nocookie.com/embed/uWDgclf_uUk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+
+		<div name="downloads">
+			<a id="downloads" class="anchor"></a>
+			<h1>Downloads</h1>
+			<ul class="install-links">
+				<li class="ubuntu-debian"><a href="https://github.com/Dougal-s/Vkav/releases/download/v0.1.0/vkav_0.1.0_amd64.deb" download>Debian/Ubuntu</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<footer id="footer">
+		<div id="footer-content">
+			<div id="footer-left">
+				<p>Dougal Stewart</p>
+				<a href="mailto:dougal.koji@gmail.com">dougal.koji@gmail.com</a>
+			</div>
+			<div id="footer-right">
+				<ul>
+					<li><a href="https://github.com/Dougal-s"><img src="/icons/GitHub.png"><span>Dougal-s</span></a></li>
+					<li><a href="https://twitter.com/Hunter__Brock"><img src="/icons/Twitter.svg"><span>Hunter__Brock</span></a></li>
+					<li><a href="https://soundcloud.com/hunter_brock"><img src="/icons/Soundcloud.svg"><span>Hunter_Brock</span></a></li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- Enable smooth scrolling when clicking on an anchor link -->
+	<script>
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+
+				document.querySelector(this.getAttribute('href')).scrollIntoView({
+					behavior: 'smooth'
+				});
+			});
+		});
+	</script>
+
+	<!-- Blur header -->
+	<script>
+		window.addEventListener('scroll', function(event) {
+			var scroll = document.documentElement.scrollTop;
+			var header = document.getElementById('header-image');
+			scroll = scroll*32/header.clientHeight;
+			header.style.filter = `blur(${scroll}px)`;
+			var scaleX = 100+400*scroll/header.clientWidth;
+			var scaleY = 100+400*scroll/header.clientHeight;
+			header.style.width = `${scaleX}%`;
+			header.style.height = `${scaleY}%`;
+			header.style.margin = `-${2*scroll}px`;
+		});
+	</script>
+
+	<!-- Toggle menubar -->
+	<script>
+		var header = document.getElementById('navBar-right');
+		if (window.innerWidth > 50*parseFloat(getComputedStyle(document.documentElement).fontSize)) {
+			header.style.display = null;
+		} else {
+			header.style.display = "none";
+		}
+
+		window.addEventListener('resize', function(event) {
+			var header = document.getElementById('navBar-right');
+			if (window.innerWidth > 50*parseFloat(getComputedStyle(document.documentElement).fontSize)) {
+				header.style.display = null;
+			} else if (header.style.display == "") {
+					header.style.display = "none";
+			}
+		});
+	</script>
+</body>
+</html>
