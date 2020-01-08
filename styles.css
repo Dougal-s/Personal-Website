@@ -105,6 +105,10 @@ body > div > h1 {
 	height: 3em;
 }
 
+.project-info > a {
+	margin-right: 1em;
+}
+
 .project-info > h2 {
 	margin: 0;
 }
