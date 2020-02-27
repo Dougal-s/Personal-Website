@@ -1,16 +1,13 @@
 /* Header/Navigation bar */
 
-#navBar {
+.navBar {
 	z-index: 65535;
-	position: fixed;
+	position: sticky;
 	top: 0;
+	background-color: #212121;
 	overflow: hidden;
 	width: 100%;
 	padding: 0;
-}
-
-.navBar-box {
-	background-color: #212121;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -18,7 +15,7 @@
 	display: none;
 }
 
-#navBar a {
+#navBar-right a {
 	float: left;
 	color: white;
 	text-decoration: none;
@@ -28,50 +25,31 @@
 	line-height: 2.2rem;
 }
 
-#navBar-left {
-	padding: 0 0.9rem 0 0.9rem;
+.navBar a.logo {
 	height: 4em;
+}
+
+.navBar > a {
 	float: left;
 	display: inline-block;
 }
 
-#navBar-left a {
-	font-size: 2rem;
-	font-weight: 300;
-	float: left;
-	display: inline-block;
-}
-
-#navBar-right a:after {
-	transition: width 0.1s, margin-left 0.1s;
-	content: "";
-	float: left;
-	background: white;
-	border-radius: 0.2rem;
-	width: 0%;
-	height: 0.1rem;
-	margin-top: -0.2rem;
-	margin-left: 50%;
-}
-
-#navBar-right a:hover:after {
-	width: 100%;
-	margin-left: 0%;
+#navBar-right a:hover {
+	background-color: #424242;
 }
 
 #navBar-right {
-	padding: 0 0.9rem 0 0.9rem;
 	display: flex;
 	float: right;
 }
 
 @media screen and (max-width: 50em) {
 	/* Header/Navigation Bar */
-	#navBar > .logo > img {
+	.navBar > .logo > img {
 		display: block;
 	}
 
-	#navBar > .logo {
+	.navBar > .logo {
 		width: auto;
 		display: inline-block;
 	}

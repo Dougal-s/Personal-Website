@@ -1,22 +1,24 @@
 #header {
 	overflow: hidden;
-
-	z-index: -1;
-	position: sticky;
+	padding: 0;
+	position: relative;
 	top: 0;
 
 	width: 100%;
-	height: 32em;
+	height: 100vh;
 	margin: 0;
 
 	text-align: center;
 }
 
 #header > #header-image {
+	float: left;
+	position: relative;
+	z-index: -1;
 	width: 100%;
 	height: 100%;
 
-	background-image: url(../Vkav.png);
+	background-image: url(Vkav.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -24,18 +26,31 @@
 
 #header > #header-text {
 	float: left;
-	display: block;
-	box-sizing: border-box;
 	width: 100%;
-	height: 100%;
-	padding-top: 11rem;
-	margin: 0;
+	margin: auto;
 
 	position: relative;
-	top: -100%;
+	z-index: -1;
+	top: -50%;
+	transform: translateY(-50%);
 
 	font-weight: lighter;
 	font-size: 10em;
 
 	color: white;
+}
+
+#header > #header-navigate {
+	position: absolute;
+	width: 3rem;
+	height: 3rem;
+
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%, -100%);
+}
+
+#header > #header-navigate > svg {
+	width: 3rem;
+	height: 3rem;
 }

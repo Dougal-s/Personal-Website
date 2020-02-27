@@ -22,7 +22,10 @@ a:active a:visited {
 }
 
 .anchor {
-	top: -5em;
+	display: block;
+	top: -5rem;
+	height: 0;
+	width: 0;
 	position: relative;
 }
 
