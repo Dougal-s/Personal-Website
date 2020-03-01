@@ -253,6 +253,14 @@
 		var visible = false;
 		var transparency = 0;
 		var navBar = document.getElementById("navBar");
+
+		if (Math.max(document.documentElement.scrollTop, 0) > 0) {
+			visible = true;
+			transparency = 255;
+			navBar.style.backgroundColor = "#212121ff";
+			navBar.style.boxShadow = "0 4px 8px 0 #00000033";
+		}
+
 		window.addEventListener('scroll', function(event) {
 			var scroll = Math.max(document.documentElement.scrollTop, 0);
 			var animation;
