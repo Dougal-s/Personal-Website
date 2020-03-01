@@ -249,9 +249,9 @@
 	<script>
 		var visible = false;
 		var transparency = 0;
+		var navBar = document.getElementById("navBar");
 		window.addEventListener('scroll', function(event) {
 			var scroll = Math.max(document.documentElement.scrollTop, 0);
-			var navBar = document.getElementById("navBar");
 			var animation;
 			if (scroll === 0) {
 				animation = setInterval(toggleOff, 4);
@@ -290,21 +290,21 @@
 				});
 			});
 		});
+	</script>
 
+	<!-- For turning the navbar options into a hamburger menu if the screen is to thin -->
+	<script>
 		var header = document.getElementById('navBar-right');
-		if (window.innerWidth > 50*parseFloat(getComputedStyle(document.documentElement).fontSize)) {
+		if (window.innerWidth > 50*parseFloat(getComputedStyle(document.documentElement).fontSize))
 			header.style.display = null;
-		} else {
+		else
 			header.style.display = "none";
-		}
 
 		window.addEventListener('resize', function(event) {
-			var header = document.getElementById('navBar-right');
-			if (window.innerWidth > 50*parseFloat(getComputedStyle(document.documentElement).fontSize)) {
+			if (window.innerWidth > 50*parseFloat(getComputedStyle(document.documentElement).fontSize))
 				header.style.display = null;
-			} else if (header.style.display == "") {
-					header.style.display = "none";
-			}
+			else if (header.style.display == "")
+				header.style.display = "none";
 		});
 	</script>
 
