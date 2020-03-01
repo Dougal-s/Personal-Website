@@ -10,6 +10,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">
 
 	<script>
+		let vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty("--vh", `${vh}px`);
+	</script>
+	<script>
 		function toggleMenubar() {
 			var header = document.getElementById('navBar-right')
 			if (header.style.display == "none")
