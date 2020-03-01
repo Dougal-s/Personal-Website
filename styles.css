@@ -98,6 +98,7 @@ h1 {
 }
 
 .project-image > p {
+	margin: 0;
 	transition: opacity 0.2s;
 	opacity: 0%;
 	position: relative;
