@@ -58,7 +58,7 @@
 
 #header > #header-profile-button:hover {
 	text-decoration: none;
-	background-color: #4169e1;
+	background-color: #206ad9;
 }
 
 #header > #header-contact-button {
@@ -83,7 +83,7 @@
 
 #header > #header-contact-button:hover {
 	text-decoration: none;
-	background-color: #4169e1;
+	background-color: #206ad9;
 	cursor: pointer;
 }
 
