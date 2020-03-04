@@ -8,8 +8,6 @@
 	height: 100vh;
 	height: calc(var("--vh", 1vh) * 100);
 	margin: 0;
-
-	text-align: center;
 }
 
 #header > #header-image {
@@ -25,19 +23,68 @@
 }
 
 #header > #header-text {
-	float: left;
-	width: 100%;
-	margin: auto;
+	text-align: left;
+	margin: 0;
 
-	position: relative;
-	z-index: -1;
-	top: -50%;
-	transform: translateY(-50%);
+	position: absolute;
+	top: 50%;
+	left: 10rem;
+	line-height: 1em;
+	transform: translateY(-75%);
 
-	font-weight: lighter;
-	font-size: 10em;
+	font-weight: 100;
+	font-size: 8rem;
 
 	color: white;
+}
+
+#header > #header-profile-button {
+	text-align: left;
+	margin: 0;
+
+	position: absolute;
+	top: 50%;
+	left: 10rem;
+	font-size: 1.2rem;
+	line-height: 1em;
+	transform: translateY(200%);
+
+	padding: 1rem 2rem;
+	border-radius: 2rem;
+
+	color: white;
+	background-color: #1e90ff;
+}
+
+#header > #header-profile-button:hover {
+	text-decoration: none;
+	background-color: #4169e1;
+}
+
+#header > #header-contact-button {
+	text-align: left;
+	border: none;
+	margin: 0;
+
+	position: absolute;
+	top: 50%;
+	left: 10rem;
+	font-size: 1.2rem;
+	line-height: 1em;
+	transform: translate(125%, 200%);
+
+	padding: 1rem 2rem;
+	border-radius: 2rem;
+
+	color: white;
+	background-color: #1e90ff;
+	outline: none;
+}
+
+#header > #header-contact-button:hover {
+	text-decoration: none;
+	background-color: #4169e1;
+	cursor: pointer;
 }
 
 #header > #header-navigate {

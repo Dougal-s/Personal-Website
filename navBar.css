@@ -1,7 +1,7 @@
 /* Header/Navigation bar */
 
 #navBar {
-	z-index: 65535;
+	z-index: 255;
 	position: fixed;
 	top: 0;
 	overflow: hidden;
