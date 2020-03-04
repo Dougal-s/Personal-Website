@@ -19,6 +19,7 @@
 }
 
 #navBar a {
+	outline: none;
 	float: left;
 	color: white;
 	text-decoration: none;
