@@ -12,12 +12,14 @@
 	<script>
 		function toggleMenubar() {
 			var header = document.getElementById('navBar-right')
-			if (header.style.display == "none")
-				header.style.display = "flex";
-			else
-				header.style.display = "none";
+			if (header.style.display == "") header.style.display = "flex";
+			else header.style.display = null;
 		}
 	</script>
+
+	<!-- Blur header -->
+	<script src="/header.js" type="text/javascript" defer></script>
+
 	<title>Vkav</title>
 </header>
 
@@ -28,7 +30,7 @@
 		<h1 id="header-text">Vkav</h1>
 	</div>
 
-	<div class="navBar">
+	<div id="navBar">
 		<button id="menu-button" onclick="toggleMenubar()">
 			<img src="/icons/menu.svg" height=100%>
 		</button>
@@ -119,7 +121,6 @@
 					<li><a href="https://github.com/Dougal-s"><img src="/icons/GitHub.png"><span>Dougal-s</span></a></li>
 					<li><a href="https://twitter.com/Hunter__Brock"><img src="/icons/Twitter.svg"><span>Hunter__Brock</span></a></li>
 					<li><a href="https://soundcloud.com/hunter_brock"><img src="/icons/Soundcloud.svg"><span>Hunter_Brock</span></a></li>
-
 				</ul>
 			</div>
 		</div>
@@ -135,40 +136,6 @@
 					behavior: 'smooth'
 				});
 			});
-		});
-	</script>
-
-	<!-- Blur header -->
-	<script>
-		window.addEventListener('scroll', function(event) {
-			var scroll = Math.max(document.documentElement.scrollTop, 0);
-			var header = document.getElementById('header-image');
-			scroll = scroll*32/header.clientHeight;
-			header.style.filter = `blur(${scroll}px)`;
-			var scaleX = 100+400*scroll/header.clientWidth;
-			var scaleY = 100+400*scroll/header.clientHeight;
-			header.style.width = `${scaleX}%`;
-			header.style.height = `${scaleY}%`;
-			header.style.margin = `-${2*scroll}px`;
-		});
-	</script>
-
-	<!-- Toggle menubar -->
-	<script>
-		var header = document.getElementById('navBar-right');
-		if (window.innerWidth > 50*parseFloat(getComputedStyle(document.documentElement).fontSize)) {
-			header.style.display = null;
-		} else {
-			header.style.display = "none";
-		}
-
-		window.addEventListener('resize', function(event) {
-			var header = document.getElementById('navBar-right');
-			if (window.innerWidth > 50*parseFloat(getComputedStyle(document.documentElement).fontSize)) {
-				header.style.display = null;
-			} else if (header.style.display == "") {
-					header.style.display = "none";
-			}
 		});
 	</script>
 </body>

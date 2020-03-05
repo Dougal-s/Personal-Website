@@ -1,6 +1,6 @@
 /* Header/Navigation bar */
 
-.navBar {
+#navBar {
 	z-index: 65535;
 	position: sticky;
 	top: 0;
@@ -25,11 +25,11 @@
 	line-height: 2.2rem;
 }
 
-.navBar a.logo {
+#navBar a.logo {
 	height: 4em;
 }
 
-.navBar > a {
+#navBar > a {
 	float: left;
 	display: inline-block;
 }
@@ -45,11 +45,11 @@
 
 @media screen and (max-width: 50em) {
 	/* Header/Navigation Bar */
-	.navBar > .logo > img {
+	#navBar > .logo > img {
 		display: block;
 	}
 
-	.navBar > .logo {
+	#navBar > .logo {
 		width: auto;
 		display: inline-block;
 	}
@@ -76,11 +76,12 @@
 		background-color: #414141FF;
 	}
 
-	.navBar {
+	#navBar {
 		text-align: left;
 	}
 
 	#navBar-right {
+		display: none;
 		width: 100%;
 		float: left;
 		flex-direction: column;

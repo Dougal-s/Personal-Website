@@ -104,6 +104,7 @@
 	}
 
 	#navBar-right {
+		display: none;
 		width: 100%;
 		float: left;
 		flex-direction: column;

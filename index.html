@@ -19,16 +19,16 @@
 			document.documentElement.style.setProperty("--vh", `${vh}px`);
 		});
 	</script>
-	<script>
-		function toggleMenubar() {
-			var header = document.getElementById('navBar-right')
-			if (header.style.display == "none")
-				header.style.display = "flex";
-			else
-				header.style.display = "none";
-		}
-	</script>
-	<script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
+
+	<!-- For the custom soundcloud players -->
+	<script src="https://w.soundcloud.com/player/api.js" type="text/javascript" defer></script>
+	<script src="/soundcloudPlayer.js" type="text/javascript" defer></script>
+	<!-- For the navigation bar -->
+	<script src="navBar.js" type="text/javascript" defer></script>
+	<!-- Blur header -->
+	<script src="header.js" type="text/javascript" defer></script>
+	<!-- JS for contact page -->
+	<script src="contact.js" type="text/javascript" defer> </script>
 
 	<title>Dougal Stewart</title>
 </header>
@@ -78,54 +78,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- JS for contact page -->
-	<script>
-		function preventDefault(e) { e.preventDefault(); }
-
-		function enableScrolling() {
-			window.removeEventListener("touchmove", preventDefault, {passive: false});
-			window.removeEventListener("wheel", preventDefault, {passive: false});
-		}
-
-		function disableScrolling() {
-			window.addEventListener("touchmove", preventDefault, {passive: false});
-			window.addEventListener("wheel", preventDefault, {passive: false});
-		}
-
-		var contactBox = document.getElementById("contact-content-box");
-		contactBox.addEventListener("click", function(e){e.stopPropagation();}, false);
-
-		var counter = 0.0;
-		var contactPage = document.getElementById('contact-page');
-
-		function openContactPage() {
-			disableScrolling();
-			contactPage.style.display = "block";
-			let animation = setInterval(function() {
-					counter = Math.min(counter+0.02, 1.0);
-					let transparency = Math.sin(counter*Math.PI*0.5)*100;
-					contactPage.style.opacity = transparency.toString()+"%";
-					contactBox.style.top = (100-transparency/2).toString()+"%";
-
-					if (counter === 1.0) clearInterval(animation);
-				}, 1);
-		}
-
-		function closeContactPage() {
-			enableScrolling();
-			let animation = setInterval(function() {
-				counter = Math.max(counter-0.02, 0.0);
-				let transparency = Math.sin(counter*Math.PI*0.5)*100;
-				contactPage.style.opacity = transparency.toString()+"%";
-				contactBox.style.top = (100-transparency/2).toString()+"%";
-				if (counter === 0.0) {
-					clearInterval(animation);
-					contactPage.style.display = "none";
-				};
-			}, 1);
-		}
-	</script>
 
 	<div id="header">
 		<div id="header-image" style="background-image: url('Vkav.png')"></div>
@@ -255,41 +207,6 @@
 					</div>
 					<div class="title-text"><a></a></div>
 				</div>
-
-				<!-- For the custom players -->
-				<script>
-					var tracks = document.getElementsByClassName("track");
-					for (let i = 0; i < tracks.length; ++i) {
-						let player = SC.Widget(tracks[i].children[0]);
-
-						// Set info
-						player.bind(SC.Widget.Events.READY, function(e) {
-							player.getCurrentSound(function(sound) {
-								var artworkUrl = sound.artwork_url || 'Fallback-Cover-Art.png';
-								tracks[i].children[1].children[2].href = sound.permalink_url;
-								tracks[i].children[2].children[0].href = sound.permalink_url;
-								tracks[i].children[2].children[0].innerText = sound.title;
-								tracks[i].children[1].children[1].setAttribute('style', "background-image: url("+artworkUrl+")");
-							});
-						});
-
-						// Add event listeners for multimedia controls
-						tracks[i].children[1].children[0].addEventListener("click", function(){
-							player.toggle();
-							if (tracks[i].children[1].children[0].src.substr(-9) === "Pause.svg")
-								tracks[i].children[1].children[0].src = "/icons/Play.svg";
-							else
-								tracks[i].children[1].children[0].src = "/icons/Pause.svg";
-						});
-
-						// Reset widget if the track finishes
-						player.bind(SC.Widget.Events.FINISH, function(e) {
-							tracks[i].children[1].children[0].src = "/icons/Play.svg";
-							player.seekTo(0);
-						})
-
-					}
-				</script>
 			</div>
 
 			<h2>Latest Release</h2>
@@ -324,48 +241,6 @@
 		</div>
 	</footer>
 
-	<!-- For toggling the navigation bar -->
-	<script>
-		var visible = false;
-		var transparency = 0;
-		var navBar = document.getElementById("navBar");
-
-		if (Math.max(document.documentElement.scrollTop, 0) > 0) {
-			visible = true;
-			transparency = 255;
-			navBar.style.backgroundColor = "#212121ff";
-			navBar.style.boxShadow = "0 4px 8px 0 #00000033";
-		}
-
-		window.addEventListener('scroll', function(event) {
-			var scroll = Math.max(document.documentElement.scrollTop, 0);
-			var animation;
-			if (scroll === 0) {
-				animation = setInterval(toggleOff, 4);
-				visible = false;
-			} else if (visible === false) {
-				animation = setInterval(toggleOn, 4);
-				visible = true;
-			}
-
-			function toggleOn() {
-				transparency = Math.min(transparency+5, 255);
-				navBar.style.backgroundColor = "#212121" + ("0" + transparency.toString(16)).substr(-2);
-				navBar.style.boxShadow = "0 4px 8px 0 #000000" + ("0" + (51*transparency/255).toString(16)).substr(-2);
-
-				if (transparency == 255 || visible === false) clearInterval(animation)
-			}
-
-			function toggleOff() {
-				transparency = Math.max(transparency-5, 0);
-				navBar.style.backgroundColor = "#212121" + ("0" + transparency.toString(16)).substr(-2);
-				navBar.style.boxShadow = "0 4px 8px 0 #000000" + ("0" + (51*transparency/255).toString(16)).substr(-2);
-
-				if (transparency == 0 || visible === true) clearInterval(animation)
-			}
-		});
-	</script>
-
 	<!-- Enable smooth scrolling when clicking on an anchor link -->
 	<script>
 		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -376,37 +251,6 @@
 					behavior: 'smooth'
 				});
 			});
-		});
-	</script>
-
-	<!-- For turning the navbar options into a hamburger menu if the screen is to thin -->
-	<script>
-		var header = document.getElementById('navBar-right');
-		if (window.innerWidth > 50*parseFloat(getComputedStyle(document.documentElement).fontSize))
-			header.style.display = null;
-		else
-			header.style.display = "none";
-
-		window.addEventListener('resize', function(event) {
-			if (window.innerWidth > 50*parseFloat(getComputedStyle(document.documentElement).fontSize))
-				header.style.display = null;
-			else if (header.style.display == "")
-				header.style.display = "none";
-		});
-	</script>
-
-	<!-- Blur header -->
-	<script>
-		window.addEventListener('scroll', function(event) {
-			var scroll = Math.max(document.documentElement.scrollTop, 0);
-			var header = document.getElementById('header-image');
-			scroll *= 16/header.clientHeight;
-			header.style.filter = `blur(${scroll}px)`;
-			var scaleX = 100+400*scroll/header.clientWidth;
-			var scaleY = 100+400*scroll/header.clientHeight;
-			header.style.width = `${scaleX}%`;
-			header.style.height = `${scaleY}%`;
-			header.style.margin = `-${2*scroll}px`;
 		});
 	</script>
 </body>
