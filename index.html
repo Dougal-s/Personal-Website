@@ -37,7 +37,7 @@
 
 	<div id="navBar" style="background-color: #21212100;box-shadow: 0 4px 8px 0 #00000000;">
 		<button id="menu-button" onclick="toggleMenubar()">
-			<img src="menu.svg" height=100%>
+			<img src="/icons/menu.svg" height=100%>
 		</button>
 		<div id="navBar-left">
 			<a href="/">Dougal Stewart</a>
@@ -54,7 +54,7 @@
 
 	<div id="contact-page" style="opacity: 0%;display: none" onclick="closeContactPage()">
 		<div id="contact-content-box">
-			<button id="contact-close" onclick="closeContactPage()"><img src="icons/cross.svg"></button>
+			<button id="contact-close" onclick="closeContactPage()"><img src="/icons/cross.svg"></button>
 			<div id="contact-content">
 				<h1><span>&lt;</span>Contact<span>&gt;</span></h1>
 
@@ -133,7 +133,7 @@
 		<a id="header-profile-button" href="#projects">Projects</a>
 		<button id="header-contact-button" onclick="openContactPage()">Contact</button>
 		<a href="#projects" id="header-navigate">
-			<img src="expand_more.svg">
+			<img src="/icons/expand_more.svg">
 		</a>
 	</div>
 
@@ -231,27 +231,27 @@
 				<div class="track">
 					<iframe class="sc-widget" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/753714601&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 					<div class="cover-art">
-						<img class="pause-play-button" src="icons/Play.svg">
+						<img class="pause-play-button" src="/icons/Play.svg">
 						<div></div>
-						<a class="soundcloud-logo"><img src="icons/soundcloud-logo-black.png"></a>
+						<a class="soundcloud-logo"><img src="/icons/soundcloud-logo-black.png"></a>
 					</div>
 					<div class="title-text"><a></a></div>
 				</div>
 				<div class="track">
 					<iframe class="sc-widget" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/736665838&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 					<div class="cover-art">
-						<img class="pause-play-button" src="icons/Play.svg">
+						<img class="pause-play-button" src="/icons/Play.svg">
 						<div></div>
-						<a class="soundcloud-logo"><img src="icons/soundcloud-logo-black.png"></a>
+						<a class="soundcloud-logo"><img src="/icons/soundcloud-logo-black.png"></a>
 					</div>
 					<div class="title-text"><a></a></div>
 				</div>
 				<div class="track">
 					<iframe class="sc-widget" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/744937033&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 					<div class="cover-art">
-						<img class="pause-play-button" src="icons/Play.svg">
+						<img class="pause-play-button" src="/icons/Play.svg">
 						<div></div>
-						<a class="soundcloud-logo"><img src="icons/soundcloud-logo-black.png"></a>
+						<a class="soundcloud-logo"><img src="/icons/soundcloud-logo-black.png"></a>
 					</div>
 					<div class="title-text"><a></a></div>
 				</div>
@@ -277,14 +277,14 @@
 						tracks[i].children[1].children[0].addEventListener("click", function(){
 							player.toggle();
 							if (tracks[i].children[1].children[0].src.substr(-9) === "Pause.svg")
-								tracks[i].children[1].children[0].src = "icons/Play.svg";
+								tracks[i].children[1].children[0].src = "/icons/Play.svg";
 							else
-								tracks[i].children[1].children[0].src = "icons/Pause.svg";
+								tracks[i].children[1].children[0].src = "/icons/Pause.svg";
 						});
 
 						// Reset widget if the track finishes
 						player.bind(SC.Widget.Events.FINISH, function(e) {
-							tracks[i].children[1].children[0].src = "icons/Play.svg";
+							tracks[i].children[1].children[0].src = "/icons/Play.svg";
 							player.seekTo(0);
 						})
 
