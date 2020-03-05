@@ -38,21 +38,25 @@
 	flex-direction: column;
 	margin: 0;
 	padding: 1rem;
-	width: 25rem;
+	width: 27rem;
 	align-items: center;
 }
 
 #contact-content > h1 {
 	color: black;
 	font-weight: 300;
-	margin: 3rem;
+	margin: 3rem 0;
 }
 
 #contact-content > h1 > span {
 	color: #808080;
 }
 
-#contact-email p {
+#contact-email {
+	text-align: center;
+}
+
+#contact-email > p {
 	color: black;
 	margin: 0 0 1rem;
 	font-size: 2rem;
@@ -61,14 +65,16 @@
 }
 
 #contact-email > a {
+	display: inline-block;
 	margin: auto;
+	margin-bottom: 1rem;
 	font-size: 1.75rem;
 	font-weight: 300;
 }
 
-#contact-socials p {
+#contact-socials > p {
 	color: black;
-	margin: 3rem 0 1.25rem;
+	margin: 2rem 0 1.25rem;
 	font-size: 2rem;
 	font-weight: 300;
 	text-align: center;
