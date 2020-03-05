@@ -1,40 +1,43 @@
 // For toggling the navbar on and off
 var visible = false;
-var transparency = 0;
+var transparency = 0.0;
 var navBar = document.getElementById("navBar");
 
-if (Math.max(document.documentElement.scrollTop, 0) > 0) {
+if (document.documentElement.scrollTop > 0) {
 	visible = true;
-	transparency = 255;
+	transparency = 1.0;
 	navBar.style.backgroundColor = "#212121ff";
 	navBar.style.boxShadow = "0 4px 8px 0 #00000033";
 }
 
 window.addEventListener('scroll', function(event) {
-	var scroll = Math.max(document.documentElement.scrollTop, 0);
-	var animation;
-	if (scroll === 0) {
-		animation = setInterval(toggleOff, 4);
+	var last = performance.now();
+	if (document.documentElement.scrollTop <= 0) {
 		visible = false;
+		window.requestAnimationFrame(toggleOff);
 	} else if (visible === false) {
-		animation = setInterval(toggleOn, 4);
 		visible = true;
+		window.requestAnimationFrame(toggleOn);
 	}
 
-	function toggleOn() {
-		transparency = Math.min(transparency+5, 255);
-		navBar.style.backgroundColor = "#212121" + ("0" + transparency.toString(16)).substr(-2);
-		navBar.style.boxShadow = "0 4px 8px 0 #000000" + ("0" + (51*transparency/255).toString(16)).substr(-2);
+	function toggleOn(timestamp) {
+		let step = timestamp - last;
+		transparency = Math.min(transparency+0.005*step, 1.0); // normalise to [0, 1]
+		navBar.style.backgroundColor = "#212121" + ("0" + Math.floor(255*transparency).toString(16)).substr(-2);
+		navBar.style.boxShadow = "0 4px 8px 0 #000000" + ("0" + Math.floor(51*transparency).toString(16)).substr(-2);
 
-		if (transparency == 255 || visible === false) clearInterval(animation)
+		last = timestamp;
+		if (transparency != 1.0 && visible === true) window.requestAnimationFrame(toggleOn);
 	}
 
-	function toggleOff() {
-		transparency = Math.max(transparency-5, 0);
-		navBar.style.backgroundColor = "#212121" + ("0" + transparency.toString(16)).substr(-2);
-		navBar.style.boxShadow = "0 4px 8px 0 #000000" + ("0" + (51*transparency/255).toString(16)).substr(-2);
+	function toggleOff(timestamp) {
+		let step = timestamp - last;
+		transparency = Math.max(transparency-0.005*step, 0.0); // normalise to [0, 1]
+		navBar.style.backgroundColor = "#212121" + ("0" + Math.floor(255*transparency).toString(16)).substr(-2);
+		navBar.style.boxShadow = "0 4px 8px 0 #000000" + ("0" + Math.floor(51*transparency).toString(16)).substr(-2);
 
-		if (transparency == 0 || visible === true) clearInterval(animation)
+		last = timestamp;
+		if (transparency != 0.0 && visible == false) window.requestAnimationFrame(toggleOff);
 	}
 });
 
