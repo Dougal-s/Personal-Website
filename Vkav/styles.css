@@ -148,7 +148,7 @@ div[name="downloads"] {
 }
 
 .install-links > li > a:hover {
-	background-color: #4169e1;
+	background-color: #206ad9;
 }
 
 @media screen and (max-width: 50em) {
