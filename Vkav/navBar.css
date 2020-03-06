@@ -16,6 +16,7 @@
 }
 
 #navBar-right a {
+	transition: color 0.2s;
 	float: left;
 	color: white;
 	text-decoration: none;
@@ -41,6 +42,10 @@
 #navBar-right {
 	display: flex;
 	float: right;
+}
+
+#navBar-right > #navBar-highlighted {
+	color: rgb(40, 100, 200);
 }
 
 @media screen and (max-width: 50em) {
