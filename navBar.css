@@ -14,6 +14,7 @@
 }
 
 #navBar a {
+	transition: color 0.2s;
 	outline: none;
 	float: left;
 	color: white;
@@ -39,7 +40,7 @@
 }
 
 #navBar-right a:after {
-	transition: width 0.1s, margin-left 0.1s;
+	transition: width 0.1s, margin-left 0.1s, background 0.2s;
 	content: "";
 	float: left;
 	background: white;
@@ -53,6 +54,14 @@
 #navBar-right a:hover:after {
 	width: 100%;
 	margin-left: 0%;
+}
+
+#navBar-right > #navBar-highlighted {
+	color: rgb(80,160,240);
+}
+
+#navBar-right > #navBar-highlighted:after {
+	background: rgb(80,160,240);
 }
 
 #navBar-right {
