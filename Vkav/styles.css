@@ -30,24 +30,31 @@ a:active a:visited {
 }
 
 h1 {
-	font-weight: lighter;
-	font-size: 2.5em;
+	font-weight: 100;
+	font-size: 3rem;
 }
 
 h2 {
 	font-weight: normal;
 }
 
+#content:before {
+	content: "";
+	margin-top: -1px;
+	display: table;
+	height: 0;
+}
+
 #content {
-	overflow: auto;
 	background-color: black;
 	color: white;
-	width: auto;
+	width: 100%;
 	padding: 0em;
 	margin: 0;
 }
 
 div[name="about"] {
+	margin-top: 3rem;
 	padding: 0 5em;
 	text-align: center;
 }
@@ -57,13 +64,14 @@ div[name="about"] > h1 {
 }
 
 div[name="about"] > p {
+	font-size: 1.1rem;
 	margin-top: 0;
 	font-weight: 300;
 	color: #f0f0f0;
 }
 
 div[name="features"] > div {
-	margin-top: 4em;
+	margin-top: 5rem;
 	width: 100%;
 	text-align: center;
 
@@ -94,7 +102,7 @@ div[name="features"] > div > div > p {
 div[name="example"] {
 	text-align: center;
 	width: 70%;
-	margin: 2em auto 3em;
+	margin: 2em auto;
 }
 
 div[name="example"] > h1 {
@@ -119,9 +127,15 @@ div[name="example"] > h1 {
 }
 
 div[name="downloads"] {
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: 30rem 30rem;
+	position: relative;
 	text-align: center;
 	width: auto;
-	margin: 3rem 0 4rem;
+	margin: 0 0 5rem;
+	padding-top: 6rem;
 }
 
 div[name="downloads"] > h2 {
@@ -131,7 +145,7 @@ div[name="downloads"] > h2 {
 
 div[name="downloads"] > pre {
 	color: #e0e0e0;
-	margin: 1rem auto;
+	margin: 2rem auto;
 	width: 30rem;
 	height: 5rem;
 	padding: 1rem;
@@ -169,6 +183,14 @@ div[name="downloads"] > pre > a {
 
 .install-links > li > a:hover {
 	background-color: #206ad9;
+}
+
+#content > #bottom-image {
+	height: 4rem;
+	width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: bottom;
 }
 
 @media screen and (max-width: 50em) {
