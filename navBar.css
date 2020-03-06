@@ -117,6 +117,7 @@
 
 	#navBar-right {
 		display: none;
+		box-sizing: border-box;
 		width: 100%;
 		float: left;
 		flex-direction: column;
