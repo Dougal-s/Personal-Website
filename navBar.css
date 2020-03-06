@@ -9,11 +9,6 @@
 	padding: 0;
 }
 
-.navBar-box {
-	background-color: #212121;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
 #menu-button {
 	display: none;
 }
