@@ -9,13 +9,8 @@
 	<link rel="stylesheet" href="/footer.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">
 
-	<script>
-		function toggleMenubar() {
-			var header = document.getElementById('navBar-right')
-			if (header.style.display == "") header.style.display = "flex";
-			else header.style.display = null;
-		}
-	</script>
+	<!-- For the navigation bar -->
+	<script src="/navBar.js" type="text/javascript" defer></script>
 
 	<!-- Blur header -->
 	<script src="/header.js" type="text/javascript" defer></script>
@@ -148,36 +143,6 @@ $ make
 				});
 			});
 		});
-	</script>
-
-	<script>
-		var navBarRight = document.getElementById('navBar-right');
-		function isVisible(element) {
-			let top = 0;
-			let iterator = element;
-			while (!!iterator && iterator.tagName.toLowerCase() !== "body") {
-				top += iterator.offsetTop;
-				iterator = iterator.offsetParent;
-			}
-
-			return top-0.25*window.innerHeight <= document.documentElement.scrollTop;
-		}
-
-		function highlightNavBarElem() {
-			for (let i = navBarRight.children.length-1; i >= 0; --i) {
-				let targetID = navBarRight.children[i].getAttribute("href").substr(1);
-				let targetElem = document.getElementById(targetID);
-
-				if (isVisible(targetElem)) {
-					for (let j in navBarRight.children) navBarRight.children[j].id = null;
-					navBarRight.children[i].id = "navBar-highlighted";
-					break;
-				}
-			}
-		}
-
-		highlightNavBarElem();
-		window.addEventListener('scroll', highlightNavBarElem);
 	</script>
 </body>
 </html>

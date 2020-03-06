@@ -24,9 +24,9 @@
 	<script src="https://w.soundcloud.com/player/api.js" type="text/javascript" defer></script>
 	<script src="/soundcloudPlayer.js" type="text/javascript" defer></script>
 	<!-- For the navigation bar -->
-	<script src="navBar.js" type="text/javascript" defer></script>
+	<script src="/navBar.js" type="text/javascript" defer></script>
 	<!-- Blur header -->
-	<script src="header.js" type="text/javascript" defer></script>
+	<script src="/header.js" type="text/javascript" defer></script>
 	<!-- JS for contact page -->
 	<script src="contact.js" type="text/javascript" defer> </script>
 
@@ -34,8 +34,7 @@
 </header>
 
 <body>
-
-	<div id="navBar" style="background-color: #21212100;box-shadow: 0 4px 8px 0 #00000000;">
+	<div id="navBar" transparent="true">
 		<button id="menu-button" onclick="toggleMenubar()">
 			<img src="/icons/menu.svg" height=100%>
 		</button>
@@ -251,6 +250,27 @@
 					behavior: 'smooth'
 				});
 			});
+		});
+	</script>
+
+	<!-- For toggling the navbar on and off -->
+	<script>
+		let visible = false;
+		let navBar = document.getElementById("navBar");
+
+		if (document.documentElement.scrollTop > 0) {
+			visible = true;
+			navBar.setAttribute("transparent", "false");
+		}
+
+		window.addEventListener('scroll', function(event) {
+			if (document.documentElement.scrollTop <= 0) {
+				visible = false;
+				navBar.setAttribute("transparent", "true");
+			} else if (visible === false) {
+				visible = true;
+				navBar.setAttribute("transparent", "false");
+			}
 		});
 	</script>
 </body>
