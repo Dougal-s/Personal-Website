@@ -121,11 +121,31 @@ div[name="example"] > h1 {
 div[name="downloads"] {
 	text-align: center;
 	width: auto;
-	margin: 3em 0 3em;
+	margin: 3rem 0 4rem;
+}
+
+div[name="downloads"] > h2 {
+	font-weight: 300;
+	font-size: 1.5rem;
+}
+
+div[name="downloads"] > pre {
+	color: #e0e0e0;
+	margin: 1rem auto;
+	width: 30rem;
+	height: 5rem;
+	padding: 1rem;
+	text-align: left;
+	background-color: #212121;
+	border-radius: 2rem;
+}
+
+div[name="downloads"] > pre > a {
+	color: white;
 }
 
 .install-links {
-	margin: 0;
+	margin: 2rem;
 	padding: 0;
 	list-style: none;
 	display: flex;
