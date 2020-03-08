@@ -14,7 +14,6 @@ function isVisible(element) {
 		top += iterator.offsetTop;
 		iterator = iterator.offsetParent;
 	}
-
 	return top-0.25*window.innerHeight <= document.documentElement.scrollTop;
 }
 
@@ -24,7 +23,7 @@ function highlightNavBarElem() {
 		let targetElem = document.getElementById(targetID);
 
 		if (isVisible(targetElem)) {
-			for (let j in navBarRight.children) navBarRight.children[j].id = null;
+			for (let child of navBarRight.children) child.id = null;
 			navBarRight.children[i].id = "navBar-highlighted";
 			break;
 		}

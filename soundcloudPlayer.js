@@ -4,8 +4,8 @@ for (let track of tracks) {
 
 	// Set info
 	player.bind(SC.Widget.Events.READY, function() {
-		player.getCurrentSound(function(sound) {
-			var artworkUrl = sound.artwork_url || 'Fallback-Cover-Art.png';
+		player.getCurrentSound(sound => {
+			let artworkUrl = sound.artwork_url || 'Fallback-Cover-Art.png';
 			track.children[1].children[2].href = sound.permalink_url;
 			track.children[2].children[0].href = sound.permalink_url;
 			track.children[2].children[0].innerText = sound.title;
@@ -16,10 +16,8 @@ for (let track of tracks) {
 	// Add event listeners for multimedia controls
 	track.children[1].children[0].addEventListener("click", function(){
 		player.toggle();
-		if (track.children[1].children[0].src.substr(-9) === "Pause.svg")
-			track.children[1].children[0].src = "/icons/Play.svg";
-		else
-			track.children[1].children[0].src = "/icons/Pause.svg";
+		if (this.src.substr(-9) === "Pause.svg") this.src = "/icons/Play.svg";
+		else this.src = "/icons/Pause.svg";
 	});
 
 	// Reset widget if the track finishes

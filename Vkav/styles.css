@@ -59,13 +59,10 @@ div[name="about"] {
 	text-align: center;
 }
 
-div[name="about"] > h1 {
-	margin-bottom: 0.5em;
-}
+div[name="about"] > h1 { margin-bottom: 0.5em; }
 
 div[name="about"] > p {
 	font-size: 1.1rem;
-	margin-top: 0;
 	font-weight: 300;
 	color: #f0f0f0;
 }
@@ -95,9 +92,7 @@ div[name="features"] > div > div > h1 {
 	margin: 0 0 1em;
 }
 
-div[name="features"] > div > div > p {
-	color: #e0e0e0;
-}
+div[name="features"] > div > div > p { color: #e0e0e0; }
 
 div[name="example"] {
 	text-align: center;
@@ -105,9 +100,7 @@ div[name="example"] {
 	margin: 2em auto;
 }
 
-div[name="example"] > h1 {
-	margin: 2em 0 1em;
-}
+div[name="example"] > h1 { margin: 2em 0 1em; }
 
 .example-wrapper {
 	overflow: hidden;
@@ -115,7 +108,6 @@ div[name="example"] > h1 {
 	height: 0;
 	width: 100%;
 	padding-top: 56.25%;
-	margin: auto;
 }
 
 .example-wrapper > iframe {
@@ -131,7 +123,6 @@ div[name="downloads"] {
 	background-repeat: no-repeat;
 	background-position: top;
 	background-size: 30rem 30rem;
-	position: relative;
 	text-align: center;
 	width: auto;
 	margin: 0 0 5rem;
@@ -154,9 +145,7 @@ div[name="downloads"] > pre {
 	border-radius: 2rem;
 }
 
-div[name="downloads"] > pre > a {
-	color: white;
-}
+div[name="downloads"] > pre > a { color: white; }
 
 .install-links {
 	margin: 2rem;

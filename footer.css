@@ -17,14 +17,9 @@
 	display: inline-block;
 }
 
-#footer-left {
-	float: left;
-	margin: 0;
-}
+#footer-left { float: left; }
 
-#footer-left p {
-	margin: 0;
-}
+#footer-left p { margin: 0; }
 
 #footer-right > ul {
 	list-style: none;
@@ -35,7 +30,6 @@
 
 #footer-right > ul > li {
 	display: block;
-	height: 1em;
 	padding-bottom: 0.5em;
 }
 
@@ -53,20 +47,16 @@
 	height: 1em;
 }
 
-#footer-right > ul > li > a > span {
-	line-height: 100%;
-}
+#footer-right > ul > li > a > span { line-height: 100%; }
 
 #footer a {
 	color: rgb(51, 153, 255);
 	text-decoration: none;
 }
 
-#footer a:hover {
-	text-decoration: underline;
-}
+#footer a:hover { text-decoration: underline; }
 
 #footer a:active a:visited {
-	text-decoration: underline;
 	color: rgb(25.50, 102, 255);
+	text-decoration: underline;
 }

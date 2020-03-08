@@ -2,7 +2,6 @@ body {
 	font-family: roboto;
 	padding: 0;
 	margin: 0;
-	bottom: 0;
 }
 
 /* default link settings */
@@ -11,15 +10,12 @@ a {
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: underline;
-}
+a:hover { text-decoration: underline; }
 
 a:active a:visited {
 	color: rgb(12.75, 51, 255);
 	text-decoration: underline;
 }
-
 
 .anchor {
 	display: block;
@@ -41,9 +37,7 @@ h1 {
 	font-weight: 100;
 }
 
-[name="Projects"] {
-	background-color: black;
-}
+[name="Projects"] { background-color: black; }
 
 [name="Projects"] > h1 {
 	color: white;
@@ -65,9 +59,7 @@ h1 {
 	flex-direction: column;
 }
 
-.project-list > div {
-	background-color: black;
-}
+.project-list > div { background-color: black; }
 
 .project-list > hr {
 	max-width: 40rem;
@@ -82,7 +74,6 @@ h1 {
 
 .project-content {
 	display: flex;
-	height: auto;
 	max-width: 80rem;
 	flex-wrap:wrap;
 	justify-content: center;
@@ -93,7 +84,6 @@ h1 {
 	overflow: hidden;
 	height: 22rem;
 	width: 36rem;
-	margin: 0;
 	padding: 0.5rem 1rem;
 }
 
@@ -113,9 +103,7 @@ h1 {
 	color: #ffffffE0;
 }
 
-.project-image:hover > p {
-	opacity: 100%;
-}
+.project-image:hover > p { opacity: 100%; }
 
 .project-image > div {
 	position: absolute;
@@ -132,9 +120,7 @@ h1 {
 	width: 100%;
 }
 
-.project-image:hover > div > div {
-	filter: blur(0.1em);
-}
+.project-image:hover > div > div { filter: blur(0.1em); }
 
 .project-info {
 	color: #e0e0e0;
@@ -149,13 +135,9 @@ h1 {
 	margin: 0;
 }
 
-.project-info > p {
-	margin: 1rem 0 0;
-}
+.project-info > p { margin: 1rem 0 0; }
 
-.project-info > ul {
-	margin-top: 0rem;
-}
+.project-info > ul { margin-top: 0rem; }
 
 .project-links {
 	list-style-type: none;
@@ -163,15 +145,12 @@ h1 {
 	padding: 0;
 }
 
-.project-links > li {
-	display: inline;
-}
+.project-links > li { display: inline; }
 
 .project-links > li > a {
 	color: rgb(51, 153, 255);
 	margin-right: 1em;
 }
-
 
 
 [name="small-projects"] > h1 {
@@ -229,9 +208,7 @@ h1 {
 	color: #ffffffe0;
 }
 
-.small-project-image:hover > p {
-	opacity: 100%;
-}
+.small-project-image:hover > p { opacity: 100%;}
 
 .small-project-image > div {
 	transition: filter 0.2s;
@@ -240,12 +217,10 @@ h1 {
 	background-position: center;
 	background-size: cover;
 	height: 10rem;
-	width: 16rem;
+	width: 100%;
 }
 
-.small-project-image:hover > div {
-	filter: blur(0.1em);
-}
+.small-project-image:hover > div { filter: blur(0.1em); }
 
 .small-project-info {
 	position: relative;
@@ -283,9 +258,7 @@ h1 {
 	justify-content: center;
 }
 
-.sc-widget {
-	display: none;
-}
+.sc-widget { display: none; }
 
 .track {
 	transition: box-shadow 0.1s;
@@ -298,9 +271,7 @@ h1 {
 	border: 0.05rem solid #a0a0a0e0;
 }
 
-.track:hover {
-	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
-}
+.track:hover { box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19); }
 
 .cover-art {
 	position: relative;
@@ -322,18 +293,16 @@ h1 {
 	cursor: pointer;
 }
 
-.pause-play-button:active {
-	filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.3)) brightness(88%);
-}
+.pause-play-button:active { filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.3)) brightness(88%); }
 
 .cover-art > div {
 	position: absolute;
 	z-index: -1;
 	top: 0;
+	bottom: 0;
 	left: 0;
+	right: 0;
 	background-size: cover;
-	width: 100%;
-	height: 100%;
 }
 
 .title-text {
@@ -366,9 +335,7 @@ h1 {
 	right: 0.5rem;
 }
 
-.soundcloud-logo:hover {
-	filter: opacity(100%);
-}
+.soundcloud-logo:hover { filter: opacity(100%); }
 
 .soundcloud-logo > img {
 	height: auto;
@@ -396,6 +363,4 @@ h1 {
 	margin: 0 0 3rem;
 }
 
-.about-me {
-	color: #e0e0e0;
-}
+.about-me { color: #e0e0e0; }

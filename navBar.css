@@ -6,10 +6,7 @@
 	box-shadow: 0 4px 8px 0 #00000000;
 	z-index: 255;
 	position: fixed;
-	top: 0;
-	overflow: hidden;
 	width: 100%;
-	padding: 0;
 }
 
 #navBar[transparent="false"] {
@@ -17,9 +14,7 @@
 	box-shadow: 0 4px 8px 0 #00000033;
 }
 
-#menu-button {
-	display: none;
-}
+#menu-button { display: none; }
 
 #navBar a {
 	transition: color 0.2s;
@@ -37,14 +32,11 @@
 	padding: 0 0.9rem 0 0.9rem;
 	height: 4em;
 	float: left;
-	display: inline-block;
 }
 
 #navBar-left a {
 	font-size: 2rem;
 	font-weight: 300;
-	float: left;
-	display: inline-block;
 }
 
 #navBar-right a:after {
@@ -64,13 +56,9 @@
 	margin-left: 0%;
 }
 
-#navBar-right > #navBar-highlighted {
-	color: rgb(80,160,240);
-}
+#navBar-right > #navBar-highlighted { color: rgb(80,160,240); }
 
-#navBar-right > #navBar-highlighted:after {
-	background: rgb(80,160,240);
-}
+#navBar-right > #navBar-highlighted:after { background: rgb(80,160,240); }
 
 #navBar-right {
 	padding: 0 0.9rem 0 0.9rem;

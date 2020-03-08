@@ -11,13 +11,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">
 
 	<script>
-		let vh = window.innerHeight * 0.01;
-		document.documentElement.style.setProperty("--vh", `${vh}px`);
+		document.documentElement.style.setProperty("--vfh", `${window.innerHeight}px`);
 
-		document.addEventListener("resize", function() {
-			let vh = window.innerHeight * 0.01;
-			document.documentElement.style.setProperty("--vh", `${vh}px`);
-		});
+		window.addEventListener("resize", function() {
+			document.documentElement.style.setProperty("--vfh", `${window.innerHeight}px`);
+		}, {passive: false});
 	</script>
 
 	<!-- For the custom soundcloud players -->
@@ -81,11 +79,9 @@
 	<div id="header">
 		<div id="header-image" style="background-image: url('Vkav.png')"></div>
 		<h1 id="header-text">Dougal<br>Stewart</h1>
-		<a id="header-profile-button" href="#projects">Projects</a>
-		<button id="header-contact-button" onclick="openContactPage()">Contact</button>
-		<a href="#projects" id="header-navigate">
-			<img src="/icons/expand_more.svg">
-		</a>
+		<a class="header-button" id="header-profile-button" href="#projects">Projects</a>
+		<button class="header-button" id="header-contact-button" onclick="openContactPage()">Contact</button>
+		<a href="#projects" id="header-navigate"><img src="/icons/expand_more.svg"></a>
 	</div>
 
 	<a id="projects" class="anchor"></a>
@@ -245,10 +241,7 @@
 		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 			anchor.addEventListener('click', function (e) {
 				e.preventDefault();
-
-				document.querySelector(this.getAttribute('href')).scrollIntoView({
-					behavior: 'smooth'
-				});
+				document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
 			});
 		});
 	</script>
