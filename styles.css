@@ -276,7 +276,7 @@ h1 {
 .cover-art {
 	position: relative;
 	box-sizing: border-box;
-	border: 0.05rem solid #a0a0ff;
+	border: 0.05rem solid #a0a0a0e0;
 	width: 16.1rem;
 	height: 16.1rem;
 }
