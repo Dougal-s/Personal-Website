@@ -11,8 +11,6 @@
 
 	<!-- For the navigation bar -->
 	<script src="/navBar.js" type="text/javascript" defer></script>
-	<!-- Blur header -->
-	<script src="/header.js" type="text/javascript" defer></script>
 
 	<title>Vkav</title>
 </header>
@@ -139,6 +137,22 @@ $ make
 				document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
 			});
 		});
+	</script>
+	
+	<!-- Blur header -->
+	<script>
+		let header = document.getElementById('header-image');
+		function setBlur() {
+			let scroll = Math.max(document.documentElement.scrollTop, 0);
+			scroll *= 24/header.clientHeight;
+			header.style.filter = `blur(${scroll}px)`;
+			let scaleX = 100+400*scroll/header.clientWidth;
+			let scaleY = 100+400*scroll/header.clientHeight;
+			header.style.width = `${scaleX}%`;
+			header.style.height = `${scaleY}%`;
+			header.style.margin = `-${2*scroll}px`;
+		}
+		window.addEventListener('scroll', setBlur);
 	</script>
 </body>
 </html>

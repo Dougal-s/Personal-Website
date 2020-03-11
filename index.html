@@ -23,8 +23,6 @@
 	<script src="/soundcloudPlayer.js" type="text/javascript" defer></script>
 	<!-- For the navigation bar -->
 	<script src="/navBar.js" type="text/javascript" defer></script>
-	<!-- Blur header -->
-	<script src="/header.js" type="text/javascript" defer></script>
 	<!-- JS for contact page -->
 	<script src="contact.js" type="text/javascript" defer> </script>
 
@@ -77,7 +75,7 @@
 	</div>
 
 	<div id="header">
-		<div id="header-image" style="background-image: url('Vkav.png')"></div>
+		<div id="header-image" style="background-image: url('Vkav.png');top:0px;bottom:0px;left:0px;right:0px"></div>
 		<h1 id="header-text">Dougal<br>Stewart</h1>
 		<a class="header-button" id="header-profile-button" href="#projects">Projects</a>
 		<button class="header-button" id="header-contact-button" onclick="openContactPage()">Contact</button>
@@ -244,6 +242,23 @@
 				document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
 			});
 		});
+	</script>
+
+	<!-- Blur header -->
+	<script>
+		var header = document.getElementById('header-image');
+		function setBlur() {
+			let scroll = Math.max(document.documentElement.scrollTop, 0);
+			scroll *= 24/header.clientHeight;
+			scroll = Math.min(scroll, 24);
+			header.style.filter = `blur(${scroll}px)`;
+			header.style.top = `-${2*scroll}px`;
+			header.style.bottom = `-${2*scroll}px`;
+			header.style.left = `-${2*scroll}px`;
+			header.style.right = `-${2*scroll}px`;
+		}
+		setBlur();
+		window.addEventListener('scroll', setBlur);
 	</script>
 
 	<!-- For toggling the navbar on and off -->
