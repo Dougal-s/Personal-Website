@@ -24,9 +24,13 @@
 	outline: none;
 	border: none;
 	background-color: #00000000;
+	opacity: 70%;
 }
 
-#contact-close:hover { cursor: pointer; }
+#contact-close:hover {
+	cursor: pointer;
+	opacity: 100%;
+}
 
 #contact-content {
 	display: inline-flex;
