@@ -261,6 +261,7 @@ h1 {
 .sc-widget { display: none; }
 
 .track {
+	overflow: hidden;
 	transition: box-shadow 0.1s;
 	position: relative;
 	width: 16.1rem;
@@ -271,6 +272,19 @@ h1 {
 	border: 0.05rem solid #a0a0a0e0;
 }
 
+.track > .track-background {
+	position: absolute;
+	top: -5px;
+	left: -5px;
+	right: -5px;
+	bottom: -5px;
+	z-index: -100;
+	filter: brightness(95%) blur(5px);
+
+	background-size: 250%;
+	background-position: center;
+}
+
 .track:hover { box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19); }
 
 .cover-art {
@@ -279,6 +293,10 @@ h1 {
 	border: 0.05rem solid #a0a0a0e0;
 	width: 16.1rem;
 	height: 16.1rem;
+}
+
+.dark .cover-art {
+	border: 0.05rem solid #80808080;
 }
 
 .pause-play-button {
@@ -316,9 +334,17 @@ h1 {
 	font-weight: 300;
 }
 
+.dark .title-text > a {
+	color: #808080;
+}
+
 .title-text > a:hover {
 	text-decoration: none;
 	color: #000000;
+}
+
+.dark .title-text > a:hover {
+	color: #a0a0a0;
 }
 
 .latest-release {
@@ -335,7 +361,16 @@ h1 {
 	right: 0.5rem;
 }
 
+.dark .soundcloud-logo {
+	filter: opacity(50%) invert();
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+}
+
 .soundcloud-logo:hover { filter: opacity(100%); }
+
+.dark .soundcloud-logo:hover { filter: opacity(90%) invert(); }
 
 .soundcloud-logo > img {
 	height: auto;

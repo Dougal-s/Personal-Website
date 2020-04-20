@@ -5,11 +5,14 @@ for (let track of tracks) {
 	// Set info
 	player.bind(SC.Widget.Events.READY, function() {
 		player.getCurrentSound(sound => {
-			let artworkUrl = sound.artwork_url || 'Fallback-Cover-Art.png';
+			let artworkUrl = sound.artwork_url;
+			if (artworkUrl) artworkUrl = artworkUrl.slice(0, -9) + "t500x500.jpg";
+			else artworkUrl = 'Fallback-Cover-Art.png';
 			track.children[1].children[2].href = sound.permalink_url;
 			track.children[2].children[0].href = sound.permalink_url;
 			track.children[2].children[0].innerText = sound.title;
-			track.children[1].children[1].style.backgroundImage= "url("+artworkUrl+")";
+			track.children[1].children[1].style.backgroundImage = "url("+artworkUrl+")";
+			track.children[3].style.backgroundImage = "url("+artworkUrl+")";
 		});
 	});
 
