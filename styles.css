@@ -334,6 +334,10 @@ h1 {
 	font-weight: 300;
 }
 
+.grey .title-text > a {
+	color: #C0C0C0;
+}
+
 .dark .title-text > a {
 	color: #808080;
 }
@@ -341,6 +345,10 @@ h1 {
 .title-text > a:hover {
 	text-decoration: none;
 	color: #000000;
+}
+
+.grey .title-text > a:hover {
+	color: #E0E0E0;
 }
 
 .dark .title-text > a:hover {
@@ -361,14 +369,17 @@ h1 {
 	right: 0.5rem;
 }
 
+.grey .soundcloud-logo {
+	filter: opacity(75%) invert();
+}
+
 .dark .soundcloud-logo {
 	filter: opacity(50%) invert();
-	position: absolute;
-	top: 0.5rem;
-	right: 0.5rem;
 }
 
 .soundcloud-logo:hover { filter: opacity(100%); }
+
+.grey .soundcloud-logo:hover { filter: opacity(100%) invert(); }
 
 .dark .soundcloud-logo:hover { filter: opacity(90%) invert(); }
 
