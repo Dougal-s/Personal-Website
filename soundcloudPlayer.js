@@ -7,7 +7,7 @@ for (let track of tracks) {
 		player.getCurrentSound(sound => {
 			let artworkUrl = sound.artwork_url;
 			if (artworkUrl) artworkUrl = artworkUrl.slice(0, -9) + "t500x500.jpg";
-			else artworkUrl = 'Fallback-Cover-Art.png';
+			else artworkUrl = 'Fallback-Cover-Art.webp';
 			track.children[1].children[2].href = sound.permalink_url;
 			track.children[2].children[0].href = sound.permalink_url;
 			track.children[2].children[0].innerText = sound.title;
