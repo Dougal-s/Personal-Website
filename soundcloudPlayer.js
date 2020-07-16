@@ -1,9 +1,9 @@
-var tracks = document.getElementsByClassName("track");
+const tracks = document.getElementsByClassName("track");
 for (let track of tracks) {
-	let player = SC.Widget(track.children[0]);
+	const player = SC.Widget(track.children[0]);
 
 	// Set info
-	player.bind(SC.Widget.Events.READY, function() {
+	player.bind(SC.Widget.Events.READY, () => {
 		player.getCurrentSound(sound => {
 			let artworkUrl = sound.artwork_url;
 			if (artworkUrl) artworkUrl = artworkUrl.slice(0, -9) + "t500x500.jpg";
@@ -17,14 +17,14 @@ for (let track of tracks) {
 	});
 
 	// Add event listeners for multimedia controls
-	track.children[1].children[0].addEventListener("click", function(){
+	track.children[1].children[0].addEventListener("click", () => {
 		player.toggle();
 		if (this.src.substr(-9) === "Pause.svg") this.src = "/icons/Play.svg";
 		else this.src = "/icons/Pause.svg";
 	});
 
 	// Reset widget if the track finishes
-	player.bind(SC.Widget.Events.FINISH, function() {
+	player.bind(SC.Widget.Events.FINISH, () => {
 		track.children[1].children[0].src = "/icons/Play.svg";
 		player.seekTo(0);
 	})

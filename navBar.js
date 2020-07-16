@@ -1,5 +1,5 @@
 // For expanding hamburger menu
-let navBarRight = document.getElementById('navBar-right');
+const navBarRight = document.getElementById('navBar-right');
 function toggleMenubar() {
 	if (navBarRight.style.display == "") navBarRight.style.display = "flex";
 	else navBarRight.style.display = null;

@@ -10,12 +10,12 @@ function disableScrolling() {
 	window.addEventListener("wheel", preventDefault, {passive: false});
 }
 
-let contactBox = document.getElementById("contact-content-box");
+const contactBox = document.getElementById("contact-content-box");
 contactBox.addEventListener("click", function(e){e.stopPropagation();}, false);
 
 let open = false;
 let counter = 0.0;
-let contactPage = document.getElementById('contact-page');
+const contactPage = document.getElementById('contact-page');
 
 function openContactPage() {
 	disableScrolling();
