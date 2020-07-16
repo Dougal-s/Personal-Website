@@ -409,4 +409,4 @@ h1 {
 	margin: 0 0 3rem;
 }
 
-.about-me { color: #e0e0e0; }
+[name="About-Me"] > p { color: #e0e0e0; }
