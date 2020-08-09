@@ -1,170 +1,204 @@
 body {
-	font-family: roboto;
-	padding: 0;
-	margin: 0;
+	font-family: montserrat;
 }
 
-/* default link settings */
-a {
-	color: rgb(25.5, 76.5, 153);
+.page {
+	display: none;
+	position: absolute;
+	left: max(20vw, 15em);
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow-y: scroll;
+}
+
+.page.displayed {
+	display: block;
+}
+
+#home {
+	height: 100%;
+	flex-flow: column nowrap;
+	align-items: center;
+	justify-content: center;
+}
+
+#home.displayed {
+	display: flex;
+}
+
+#home-text {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	width: 100%;
+	margin-bottom: 4em;
+}
+
+#home-text > h1 {
+	margin-left: 0.5em;
+	margin-right: 2em;
+}
+
+#home-text > p {
+	max-width: 20em;
+}
+
+#projects > h1 {
+	font-weight: 300;
+	text-align: center;
+}
+
+#projects > hr {
+	width: 50%;
+	height: 0.25em;
+	margin-bottom: 2em;
+	border: none;
+	background-color: #333333;
+}
+
+.project-list > .project-card {
+	display: flex;
+	flex-flow: row nowrap;
+	width: 100%;
+	height: 15em;
+}
+
+.project-card > .project-image {
+	margin: 0;
+	position: absolute;
+	overflow: hidden;
+	height: 15em;
+}
+
+.project-card:nth-child(2n+1) > .project-image {
+	left: 0;
+	right: 20%;
+}
+
+.project-card:nth-child(2n) > .project-image {
+	left: 20%;
+	right: 0;
+}
+
+.project-card > .project-image > p {
+	transition: opacity 0.5s;
+	text-decoration: none;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	line-height: 15em;
+	text-align: center;
+	margin: 0;
+	color: #212121;
+}
+
+.project-card > .project-image:hover > p {
+	opacity: 100%;
+}
+
+.project-card > .project-image:focus {
+	outline: none;
+}
+
+.project-card > .project-image:focus > p {
+	opacity: 100%;
+}
+
+.project-card:nth-child(2n+1) > .project-image > p {
+	left: 0;
+	right: 33.3%;
+}
+
+.project-card:nth-child(2n) > .project-image > p {
+	left: 33.3%;
+	right: 0;
+}
+
+.project-card > .project-image > div {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.project-card:nth-child(2n+1) > .project-image > div {
+	background: linear-gradient(to right, #ffffff00, #ffffffff);
+}
+
+.project-card:nth-child(2n) > .project-image > div {
+	background: linear-gradient(to left, #ffffff00, #ffffffff);
+}
+
+.project-card > .project-image > img {
+	transition: filter 0.5s;
+	width: 100%;
+	filter: blur(2px) contrast(70%);
+	transform: scale(1.3);
+}
+
+.project-card > .project-image:hover > img {
+	filter: blur(3px) contrast(60%);
+}
+
+.project-card > .project-image:focus > img {
+	filter: blur(3px) contrast(60%);
+}
+
+.project-card > .project-info {
+	padding: 1em;
+	width: 14em;
+	margin: 0;
+	position: absolute;
+	overflow: hidden;
+}
+
+.project-card:nth-child(2n+1) > .project-info {
+	text-align: right;
+	right: 0;
+}
+
+.project-card:nth-child(2n) > .project-info {
+	text-align: left;
+	left: 0;
+	right: 75%;
+}
+
+.project-card > .project-info > h2 {
+	margin-top: 0.6em;
+	font-weight: 400;
+}
+
+.project-card > .project-info > ul {
+	list-style: none;
+	padding: 0;
+}
+
+.project-card > .project-info > ul > li {
+	margin-right: 1em;
+	margin-bottom: 0.25em;
+	display: inline-block;
+}
+
+.project-card > .project-info > ul > li > a {
+	color: rgb(25.50, 102, 255);
 	text-decoration: none;
 }
 
-a:hover { text-decoration: underline; }
-
-a:active a:visited {
-	color: rgb(12.75, 51, 255);
+.project-card > .project-info > ul > li > a:hover {
+	color: rgb(17, 51, 85);
 	text-decoration: underline;
 }
 
-.anchor {
-	display: block;
-	top: -4rem;
-	height: 0;
-	width: 0;
-	position: relative;
+#small-projects {
+	margin-top: 8em;
 }
 
-body > div {
-	width: 100%;
-	overflow: hidden;
-}
-
-h1 {
+#small-projects > h1 {
+	font-weight: 400;
 	text-align: center;
-	color: black;
-	font-size: 2.5em;
-	font-weight: 100;
-}
-
-[name="Projects"] { background-color: black; }
-
-[name="Projects"] > h1 {
-	color: white;
-	margin: 7rem 0 7rem;
-}
-
-[name="Projects"] > h1 > span {
-	content: "Projects_";
-	margin: 1rem auto;
-	background: blue;
-	width: 8em;
-	height: 0.1rem;
-}
-
-.project-list {
-	width: 100%;
-	padding: 0 0 4rem;
-	display: flex;
-	flex-direction: column;
-}
-
-.project-list > div { background-color: black; }
-
-.project-list > hr {
-	max-width: 40rem;
-	width: 50%;
-}
-
-.project-card {
-	width: 100%;
-	height: auto;
-	padding: 3.5rem 0;
-}
-
-.project-content {
-	display: flex;
-	max-width: 80rem;
-	flex-wrap:wrap;
-	justify-content: center;
-	margin: auto;
-}
-
-.project-image {
-	overflow: hidden;
-	height: 22rem;
-	width: 36rem;
-	padding: 0.5rem 1rem;
-}
-
-.project-image > p {
-	box-sizing: border-box;
-	margin: 0;
-	transition: opacity 0.2s;
-	opacity: 0%;
-	position: relative;
-	z-index: 1;
-	float: left;
-	padding: 10.5rem 0;
-	height: 100%;
-	width: 100%;
-	text-align: center;
-	background-color: #21212180;
-	color: #ffffffE0;
-}
-
-.project-image:hover > p { opacity: 100%; }
-
-.project-image > div {
-	position: absolute;
-	overflow: hidden;
-	height: 22rem;
-	width: 36rem;
-}
-
-.project-image > div > div {
-	transition: filter 0.2s;
-	background-position: center;
-	background-size: cover;
-	height: 100%;
-	width: 100%;
-}
-
-.project-image:hover > div > div { filter: blur(0.1em); }
-
-.project-info {
-	color: #e0e0e0;
-	width: 36rem;
-	padding: 1.5rem 1rem 0;
-}
-
-.project-info > h2 {
-	color: white;
-	font-size: 2.4rem;
-	font-weight: 300;
-	margin: 0;
-}
-
-.project-info > p { margin: 1rem 0 0; }
-
-.project-info > ul { margin-top: 0rem; }
-
-.project-links {
-	list-style-type: none;
-	margin: 1em 0 0;
-	padding: 0;
-}
-
-.project-links > li { display: inline; }
-
-.project-links > li > a {
-	color: rgb(51, 153, 255);
-	margin-right: 1em;
-}
-
-
-[name="small-projects"] > h1 {
-	font-weight: 300;
-	color: black;
-	margin: 7rem 10% 6rem;
-}
-
-[name="small-projects"] > hr {
-	border-width: 0.1rem;
-	border-color: black;
-	border-radius: 5rem;
-	max-width: 65rem;
-	width: 50%;
 }
 
 .small-project-list {
@@ -173,7 +207,8 @@ h1 {
 	flex-wrap: wrap;
 
 	justify-content: center;
-	padding-bottom: 4rem;
+	margin-top: 5em;
+	padding-bottom: 8em;
 }
 
 .small-project-card {
@@ -210,6 +245,8 @@ h1 {
 
 .small-project-image:hover > p { opacity: 100%;}
 
+.small-project-image:focus > p { opacity: 100%;}
+
 .small-project-image > div {
 	transition: filter 0.2s;
 	display: block;
@@ -232,6 +269,16 @@ h1 {
 .small-project-link {
 	position: absolute;
 	bottom: 1rem;
+
+	color: rgb(25.5, 76.5, 153);
+	text-decoration: none;
+}
+
+.small-project-link:hover { text-decoration: underline; }
+
+.small-project-link:active .small-project-link:visited {
+	color: rgb(12.75, 51, 255);
+	text-decoration: underline;
 }
 
 .small-project-info > h2 {
@@ -240,173 +287,103 @@ h1 {
 	margin: 0;
 }
 
-[name="Music"] > h1 {
-	font-size: 4rem;
-	margin: 7rem 0;
-}
-
-.music > h2 {
-	margin: 3rem;
-	text-align: center;
-	font-size: 2rem;
-	font-weight: 300;
-}
-
-.track-list {
+#about.displayed {
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
+	flex-flow: column nowrap;
+	padding: 1em 0 3em;
 }
 
-.sc-widget { display: none; }
-
-.track {
-	overflow: hidden;
-	transition: box-shadow 0.1s;
-	position: relative;
-	width: 16.1rem;
-	height: 19rem;
-	margin: 1.5rem;
-	padding: 1rem;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	border: 0.05rem solid #a0a0a0e0;
+#about :first-child {
+	margin-top: auto;
 }
 
-.track > .track-background {
-	position: absolute;
-	top: -5px;
-	left: -5px;
-	right: -5px;
-	bottom: -5px;
-	z-index: -100;
-	filter: brightness(95%) blur(5px);
-
-	background-size: 250%;
-	background-position: center;
+#about :last-child {
+	margin-bottom: auto;
 }
 
-.track:hover { box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19); }
-
-.cover-art {
-	position: relative;
-	box-sizing: border-box;
-	border: 0.05rem solid #a0a0a0e0;
-	width: 16.1rem;
-	height: 16.1rem;
-}
-
-.dark .cover-art {
-	border: 0.05rem solid #80808080;
-}
-
-.pause-play-button {
-	filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.3));
-	width: 5rem;
-	height: 5rem;
-	margin: 5.5rem;
-}
-
-.pause-play-button:hover {
-	filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.3)) brightness(90%);
-	cursor: pointer;
-}
-
-.pause-play-button:active { filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.3)) brightness(88%); }
-
-.cover-art > div {
-	position: absolute;
-	z-index: -1;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-size: cover;
-}
-
-.title-text {
-	text-align: center;
-	margin: 1rem 0 0;
-}
-
-.title-text > a {
-	font-size: 1.5rem;
-	color: #404040;
+#about > h1 {
 	font-weight: 300;
+	text-align: center;
 }
 
-.grey .title-text > a {
-	color: #C0C0C0;
+#about > h2 {
+	font-weight: 300;
+	text-align: center;
 }
 
-.dark .title-text > a {
-	color: #808080;
+#about > hr {
+	width: 50%;
+	height: 0.25em;
+	margin-bottom: 2em;
+	border: none;
+	background-color: #333333;
 }
 
-.title-text > a:hover {
-	text-decoration: none;
-	color: #000000;
+#about > p {
+	width: 50%;
+	margin: 0 auto;
 }
 
-.grey .title-text > a:hover {
-	color: #E0E0E0;
+@media screen and (max-width: 900px) {
+	.page {
+		left: 0;
+		right: 0;
+		top: 5em;
+	}
+
+	#home {
+		left: 0;
+		right: 0;
+		top: 5em;
+		height: calc(100% - 5em);
+		width: 100%;
+	}
+
+	#home-text > h1 {
+		margin-right: 1em;
+	}
+
+	.project-list > .project-card > .project-image {
+		left: 0;
+		right: 0;
+	}
+
+	.project-card > .project-image > img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.project-card > .project-image > div {
+		display: none;
+	}
+
+	.project-card > .project-image > p {
+		color: #e0e0e0;
+	}
+
+	.project-card > .project-info {
+		filter: drop-shadow(0px 0 20px #00000080);
+		color: white;
+	}
+
+	.project-card > .project-info > p {
+		filter: drop-shadow(1px 0 2px #00000030);
+	}
+
+	.project-card > .project-info > ul > li > a {
+		color: rgb(51, 153, 255);
+	}
+
+	.project-card > .project-info > ul > li > a:hover {
+		color: rgb(25.50, 102, 255);
+	}
+
+	#about.displayed {
+		display: block;
+	}
+
+	#about > p {
+		width: calc(100% - 5em);
+	}
 }
-
-.dark .title-text > a:hover {
-	color: #a0a0a0;
-}
-
-.latest-release {
-	margin: auto;
-	max-width: 60.3rem;
-	height: 20rem;
-	width: 90%;
-}
-
-.soundcloud-logo {
-	filter: opacity(50%);
-	position: absolute;
-	top: 0.5rem;
-	right: 0.5rem;
-}
-
-.grey .soundcloud-logo {
-	filter: opacity(75%) invert();
-}
-
-.dark .soundcloud-logo {
-	filter: opacity(50%) invert();
-}
-
-.soundcloud-logo:hover { filter: opacity(100%); }
-
-.grey .soundcloud-logo:hover { filter: opacity(100%) invert(); }
-
-.dark .soundcloud-logo:hover { filter: opacity(90%) invert(); }
-
-.soundcloud-logo > img {
-	height: auto;
-	width: 4rem;
-}
-
-.latest-release > iframe {
-	width: 100%;
-	height: 100%;
-}
-
-[name="About-Me"] {
-	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
-	background-color: #212121;
-	margin: 7rem auto;
-	max-width: 35rem;
-	width: 80%;
-	padding: 3rem;
-}
-
-[name="About-Me"] > h1 {
-	font-weight: 100;
-	font-size: 4rem;
-	color: white;
-	margin: 0 0 3rem;
-}
-
-[name="About-Me"] > p { color: #e0e0e0; }

@@ -1,313 +1,240 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-	<link rel="icon" type="image/png" href="favicon.png">
-	<link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="navBar.css">
-	<link rel="stylesheet" href="header.css">
-	<link rel="stylesheet" href="contact.css">
-	<link rel="stylesheet" href="/footer.css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">
-
-	<script>
-		document.documentElement.style.setProperty("--vfh", `${window.innerHeight}px`);
-
-		window.addEventListener("resize", function() {
-			document.documentElement.style.setProperty("--vfh", `${window.innerHeight}px`);
-		}, {passive: false});
-	</script>
-
-	<!-- For the custom soundcloud players -->
-	<script src="https://w.soundcloud.com/player/api.js" type="text/javascript" defer></script>
-	<script src="/soundcloudPlayer.js" type="text/javascript" defer></script>
-	<!-- For the navigation bar -->
-	<script src="/navBar.js" type="text/javascript" defer></script>
-	<!-- JS for contact page -->
-	<script src="contact.js" type="text/javascript" defer> </script>
-
 	<title>Dougal Stewart</title>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicons/favicon32x32.png" sizes="32x32">
+	<link rel="icon" href="/favicons/favicon48x48.png" sizes="48x48">
+	<link rel="icon" href="/favicons/favicon96x96.png" sizes="96x96">
+	<link rel="icon" href="/favicons/favicon144x144.png" sizes="144x144">
+
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="music.css">
+	<link rel="stylesheet" href="slideshow.css">
+	<link rel="stylesheet" href="sidebar.css">
+
+	<script src="helper.js" type="text/javascript" defer></script>
+	<script src="slideshow.js" type="text/javascript" defer></script>
+
+	<!-- Soundcloud Players -->
+	<script src="https://w.soundcloud.com/player/api.js" type="text/javascript" defer></script>
+	<script src="soundcloudPlayer.js" type="text/javascript" defer></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
 <body>
-	<div id="navBar" transparent="true">
-		<button id="menu-button" onclick="toggleMenubar()">
-			<img src="/icons/menu.svg" height=100%>
-		</button>
-		<div id="navBar-left">
-			<a href="/">Dougal Stewart</a>
+	<nav id="sidebar">
+		<a href="/"><h1>Dougal Stewart</h1></a>
+		<button id="toggle-navbar-btn" onclick="toggleNavbar"><img src="/icons/expand-navbar.svg"></button>
+		<ul id="navigation">
+			<li id="home-button" class="selected" tabindex="0" role="button">Home</li>
+			<li id="projects-button" tabindex="0" role="button">Projects</li>
+			<li id="music-button" tabindex="0" role="button">Music</li>
+			<li id="about-button" tabindex="0" role="button">About</li>
+		</ul>
+		<div id="footer">
+			<ul>
+				<li><a href="https://github.com/Dougal-s"><img alt="Github icon" src="/icons/GitHub.png"><span>Dougal-s</span></a></li>
+				<li><a href="https://twitter.com/Hunter__Brock"><img alt="Twitter icon" src="/icons/Twitter.svg"><span>Hunter__Brock</span></a></li>
+				<li><a href="https://soundcloud.com/hunter_brock"><img alt="Soundcloud icon" src="/icons/Soundcloud.svg"><span>Hunter_Brock</span></a></li>
+			</ul>
 		</div>
-		<div id="navBar-right">
-			<a href=#home>home</a>
-			<a href=#projects>projects</a>
-			<a href=#music>music</a>
-			<a href=#about>about</a>
+	</nav>
+
+	<div id="home" class="page displayed">
+		<div id="home-text">
+			<h1>Hello!</h1>
+			<p>I'm a 16 year old programmer and composer from South Korea.</p>
 		</div>
-	</div>
-
-	<a id="home" class="anchor"></a>
-
-	<div id="contact-page" style="opacity: 0%;display: none" onclick="closeContactPage()">
-		<div id="contact-content-box">
-			<button id="contact-close" onclick="closeContactPage()"><img src="/icons/cross.svg"></button>
-			<div id="contact-content">
-				<h1><span>&lt;</span>Contact<span>&gt;</span></h1>
-
-				<div id="contact-email">
-					<p>Email:</p>
-					<a href="mailto:dougal.koji@gmail.com">dougal.koji@gmail.com</a>
-					<p>Music:</p>
-					<a href="mailto:dougal.koji@gmail.com">hunterbrockmusic@gmail.com</a>
-				</div>
-
-				<div id="contact-socials">
-					<p>Socials:</p>
-					<ul>
-						<li><a href="https://github.com/Dougal-s"><img src="/icons/GitHub-alt.png"><span>Dougal-s</span></a></li>
-						<li><a href="https://twitter.com/Hunter__Brock"><img src="/icons/Twitter-alt.svg"><span>Hunter__Brock</span></a></li>
-						<li><a href="https://soundcloud.com/hunter_brock"><img src="/icons/Soundcloud-alt.svg"><span>Hunter_Brock</span></a></li>
-					</ul>
-				</div>
-
-				<h1><span>&lt;</span>/Contact<span>&gt;</span>_</h1>
+		<div id="project-slideshow">
+			<img aria-label="last project slide" class="left" src="icons/chevron_left.svg" tabindex="0" role="button">
+			<div id="project-slides">
+				<a href="/Vkav" class="project-slide displayed">
+					<img alt="Screenshot of Vkav" src="/Project Images/Vkav.webp">
+					<h2>Vkav</h2>
+					<p>A highly configurable audio visualiser written in c++</p>
+				</a>
+				<a href="https://github.com/Dougal-s/Penguin" class="project-slide">
+					<img alt="Screenshot of Penguin" src="/Project Images/Penguin.webp">
+					<h2>Penguin</h2>
+					<p>A sample browser created using the electron framework</p>
+				</a>
+				<a href="https://soundcloud.com/hunter_brock/hope" class="project-slide">
+					<img alt="Cover art for Hope" src="/Project Images/Hope.webp">
+					<h2>Hope</h2>
+					<p>My most recent release</p>
+				</a>
 			</div>
+			<img aria-label="next project slide" class="right" src="icons/chevron_right.svg" tabindex="0" role="button">
 		</div>
 	</div>
 
-	<div id="header">
-		<div id="header-image" style="background-image: url('Project Images/Vkav.webp');top:0px;bottom:0px;left:0px;right:0px"></div>
-		<h1 id="header-text">Dougal<br>Stewart</h1>
-		<a class="header-button" id="header-profile-button" href="#projects">Projects</a>
-		<button class="header-button" id="header-contact-button" onclick="openContactPage()">Contact</button>
-		<a href="#projects" id="header-navigate"><img src="/icons/expand_more.svg"></a>
-	</div>
-
-	<a id="projects" class="anchor"></a>
-	<div name="Projects">
-		<h1>Personal <span>Projects_<span></h1>
+	<div id="projects" class="page">
+		<h1>Projects</h1>
+		<hr>
 		<div class="project-list">
 
-			<hr>
-
 			<div id="Vkav" class="project-card">
-				<div class="project-content">
-					<a class="project-image" href="/Vkav">
-						<p>View Page</p>
-						<div><div style="background-image: url('Project Images/Vkav.webp')"></div></div>
-					</a>
-					<div class="project-info">
-						<h2>Vkav</h2>
-						<p>Vkav is a highly configurable cross platform audio visualiser written in c++.
-							Using Vulkan, it visualises audio from the desktop, or a user specified source, in real time.</p>
+				<a class="project-image" href="/Vkav">
+					<img alt="Screenshot of Vkav" src="Project Images/Vkav.webp">
+					<div></div>
+					<p>View Page</p>
+				</a>
+				<div class="project-info">
+					<h2>Vkav</h2>
+					<p>A highly configurable real time audio visualiser written in c++.</p>
 
-						<p>Uses:</p>
-						<ul>
-							<li>c++</li>
-							<li>cmake</li>
-							<li>git</li>
-							<li>vulkan</li>
-						</ul>
-						<ul class="project-links">
-							<li><a href="/Vkav">Visit Page</a></li>
-							<li><a href="https://github.com/Dougal-s/Vkav">View on Github</a></li>
-						</ul>
-					</div>
+					<p>Uses: c++, cmake, vulkan</p>
+					</ul>
+					<ul class="project-links">
+						<li><a href="/Vkav">Visit Page</a></li>
+						<li><a href="https://github.com/Dougal-s/Vkav">View on Github</a></li>
+					</ul>
 				</div>
 			</div>
-
-			<hr>
 
 			<div id="Penguin" class="project-card">
-				<div class="project-content">
-					<a class="project-image" href="https://github.com/Dougal-s/Penguin">
-						<p>View On Github</p>
-						<div><div style="background-image: url('Project Images/Penguin.webp')"></div></div>
-					</a>
-					<div class="project-info">
-						<h2>Penguin</h2>
-						<p>Penguin is an electron based sample browser.</p>
+				<a class="project-image" href="https://github.com/Dougal-s/Penguin">
+					<img alt="Screenshot of Penguin" src="Project Images/Penguin.webp">
+					<div></div>
+					<p>View On Github</p>
+				</a>
+				<div class="project-info">
+					<h2>Penguin</h2>
+					<p>An easy to use electron based sample browser.</p>
 
-						<p>Uses:</p>
-						<ul>
-							<li>git</li>
-							<li>electron</li>
-							<li>html</li>
-							<li>css</li>
-							<li>javascript</li>
-						</ul>
-						<ul class="project-links">
-							<li><a href="https://github.com/Dougal-s/Penguin">View on Github</a></li>
-						</ul>
-					</div>
+					<p>Uses: electron, html, css, javascript</p>
+					<ul class="project-links">
+						<li><a href="https://github.com/Dougal-s/Penguin">View on Github</a></li>
+					</ul>
 				</div>
 			</div>
-
-			<hr>
 
 			<div id="Personal Website" class="project-card">
-				<div class="project-content">
-					<a class="project-image" href="https://github.com/Dougal-s/dougal-s.github.io">
-						<p>View On Github</p>
-						<div><div style="background-image: url('Project Images/Website.webp')"></div></div>
-					</a>
-					<div class="project-info">
-						<h2>Personal Website</h2>
-						<p>This website showcases all my various programming projects as well as my music, in an organized fashion.</p>
-
-						<p>Uses:</p>
-						<ul>
-							<li>html</li>
-							<li>css</li>
-							<li>javascript</li>
-						</ul>
-						<ul class="project-links">
-							<li><a href="/">Visit Page</a></li>
-							<li><a href="https://github.com/Dougal-s/dougal-s.github.io">View on Github</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-	<div name="small-projects">
-		<h1>Some small but noteworthy projects...</h1>
-		<div class="small-project-list">
-
-			<div id="Pathfinder" class="small-project-card">
-				<a class="small-project-image" href="https://github.com/Dougal-s/Pathfinding-AI">
-					<p>View on Github</p>
-					<div style="background-image: url('Project Images/Pathfinder.webp')"></div>
+				<a class="project-image" href="https://github.com/Dougal-s/dougal-s.github.io">
+					<img alt="Screenshot of this website" src="Project Images/Website.webp">
+					<div></div>
+					<p>View On Github</p>
 				</a>
-				<div class="small-project-info">
-					<h2>Pathfinder</h2>
-					<p>A pathfinder written in c++ that employs a genetic algorithm to find the optimal path to a destination.</p>
-					<a class="small-project-link" href="https://github.com/Dougal-s/Pathfinding-AI">View on Github</a>
+				<div class="project-info">
+					<h2>Personal Website</h2>
+					<p>My personal website for showcasing my various projects</p>
+
+					<p>Uses: html, css, javascript</p>
+					<ul class="project-links">
+						<li><a href="/">Visit Page</a></li>
+						<li><a href="https://github.com/Dougal-s/dougal-s.github.io">View on Github</a></li>
+					</ul>
 				</div>
 			</div>
 
 		</div>
 
-		<hr>
+		<div id="small-projects">
+			<h1>Some small but noteworthy projects...</h1>
+			<div class="small-project-list">
 
+				<div id="Pathfinder" class="small-project-card">
+					<a class="small-project-image" href="https://github.com/Dougal-s/Pathfinding-AI">
+						<p>View on Github</p>
+						<div style="background-image: url('Project Images/Pathfinder.webp')"></div>
+					</a>
+					<div class="small-project-info">
+						<h2>Pathfinder</h2>
+						<p>A pathfinder written in c++ that employs a genetic algorithm to find the optimal path to a destination.</p>
+						<a class="small-project-link" href="https://github.com/Dougal-s/Pathfinding-AI">View on Github</a>
+					</div>
+				</div>
+
+				<div id="Non-Realtime Audio Processing" class="small-project-card">
+					<a class="small-project-image" href="https://github.com/Dougal-s/Non-Realtime-Audio-Processing">
+						<p>View on Github</p>
+						<div style="background-image: url('Project Images/cli-project.webp')"></div>
+					</a>
+					<div class="small-project-info">
+						<h2>Non-Realtime Audio Processing</h2>
+						<p>A program written in c++, which processes wav files using plugins.</p>
+						<a class="small-project-link" href="https://github.com/Dougal-s/Non-Realtime-Audio-Processing">View on Github</a>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
 	</div>
 
-	<a id="music"  class="anchor"></a>
-	<div name="Music">
+	<div id="music" class="page">
 		<h1>Music</h1>
-		<div class="music">
-
-			<h2>Spotlight</h2>
-			<div class="track-list">
-				<div class="track dark">
-					<iframe class="sc-widget" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/806649079&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-					<div class="cover-art">
-						<img class="pause-play-button" src="/icons/Play.svg">
-						<div></div>
-						<a class="soundcloud-logo"><img src="/icons/soundcloud-logo-black.png"></a>
-					</div>
-					<div class="title-text"><a></a></div>
-					<div class="track-background"></div>
+		<hr>
+		<h2>Spotlight</h2>
+		<div class="track-list">
+			<div class="track dark">
+				<iframe class="sc-widget" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/806649079&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				<div class="track-background"></div>
+				<div class="cover-art">
+					<img alt="Cover art" class="cover-art-background">
+					<img aria-label="play pause button" class="pause-play-button" tabindex="0" role="button">
+					<a class="soundcloud-logo"><img alt="soundcloud logo" src="/icons/soundcloud-logo-black.png"></a>
+					<div class="progress-bar"></div>
 				</div>
-				<div class="track grey">
-					<iframe class="sc-widget" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/839378716&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-					<div class="cover-art">
-						<img class="pause-play-button" src="/icons/Play.svg">
-						<div></div>
-						<a class="soundcloud-logo"><img src="/icons/soundcloud-logo-black.png"></a>
-					</div>
-					<div class="title-text"><a></a></div>
-					<div class="track-background"></div>
-				</div>
-				<div class="track">
-					<iframe class="sc-widget" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/859090177&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-					<div class="cover-art">
-						<img class="pause-play-button" src="/icons/Play.svg">
-						<div></div>
-						<a class="soundcloud-logo"><img src="/icons/soundcloud-logo-black.png"></a>
-					</div>
-					<div class="title-text"><a></a></div>
-					<div class="track-background"></div>
-				</div>
+				<div class="title-text"><a></a></div>
 			</div>
-
-			<h2>Latest Release</h2>
-			<div class="latest-release">
-				<iframe scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/622358682&color=%230090ff&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+			<div class="track grey">
+				<iframe class="sc-widget" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/839378716&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				<div class="track-background"></div>
+				<div class="cover-art">
+					<img alt="Cover art" class="cover-art-background">
+					<img aria-label="play pause button" class="pause-play-button" tabindex="0" role="button">
+					<a class="soundcloud-logo"><img alt="soundcloud logo" src="/icons/soundcloud-logo-black.png"></a>
+					<div class="progress-bar"></div>
+				</div>
+				<div class="title-text"><a></a></div>
 			</div>
+			<div class="track">
+				<iframe class="sc-widget" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/859090177&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				<div class="track-background"></div>
+				<div class="cover-art">
+					<img alt="Cover art" class="cover-art-background">
+					<img aria-label="play pause button" class="pause-play-button" tabindex="0" role="button">
+					<a class="soundcloud-logo"><img alt="soundcloud logo" src="/icons/soundcloud-logo-black.png"></a>
+					<div class="progress-bar"></div>
+				</div>
+				<div class="title-text"><a></a></div>
+			</div>
+		</div>
 
+		<h2>Latest Release</h2>
+		<div class="latest-release">
+			<iframe title="A list of my releases" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/622358682&color=%235386ff&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 		</div>
 	</div>
 
-	<a id="about"  class="anchor"></a>
-	<div name="About-Me">
+	<div id="about" class="page">
 		<h1>About</h1>
-		<p>I am a 16 y/o programmer and producer known under the alias Hunter_Brock.</p>
+		<hr>
+		<p>Hi, I'm Dougal Stewart (also known as Hunter_Brock) and I am a 16 year old musician and programmer from South Korea.</p>
+		<h2>Programming</h2>
+		<p>
+			I was first inspired to start programming when I was 10, making simple games using php
+			with the help of my dad. At the time I was using programming as a tool to make games.
+			However, once I started diving deeper into computer science, learning how the various
+			languages I was using worked behind the scenes, my fascination with computer science
+			started to grow. Since then, both my interests and skills have grown considerably after
+			working on projects such as Vkav, Penguin and my Non-realtime Audio Processor.
+		</p>
+		<h2>Music</h2>
+		<p>
+			Ironically, music used to be one of my least favourite subjects and was one that I
+			strongly disliked. However, in 2017, I started to find and explore music that I
+			genuinely enjoyed listening to. Eventually, this inspired me to start making music myself
+			and in the summer of 2018, I started creating my first tracks. I immediately found
+			creating music to be gratifying and extraordinarily rewarding despite my apparent lack
+			of talent. Since then, I have been continously producing music for nearly 2 years,
+			learning all I can about music production.
+		</p>
 	</div>
-
-	<footer id="footer">
-		<div id="footer-content">
-			<div id="footer-left">
-				<p>Dougal Stewart</p>
-				<a href="mailto:dougal.koji@gmail.com">dougal.koji@gmail.com</a>
-			</div>
-			<div id="footer-right">
-				<ul>
-					<li><a href="https://github.com/Dougal-s"><img src="/icons/GitHub.png"><span>Dougal-s</span></a></li>
-					<li><a href="https://twitter.com/Hunter__Brock"><img src="/icons/Twitter.svg"><span>Hunter__Brock</span></a></li>
-					<li><a href="https://soundcloud.com/hunter_brock"><img src="/icons/Soundcloud.svg"><span>Hunter_Brock</span></a></li>
-				</ul>
-			</div>
-		</div>
-	</footer>
-
-	<!-- Enable smooth scrolling when clicking on an anchor link -->
-	<script>
-		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-			anchor.addEventListener('click', function (e) {
-				e.preventDefault();
-				document.querySelector(this.getAttribute('href')).scrollIntoView({behavior: 'smooth'});
-			});
-		});
-	</script>
-
-	<!-- Blur header -->
-	<script>
-		var header = document.getElementById('header-image');
-		function setBlur() {
-			let scroll = Math.max(document.documentElement.scrollTop, 0);
-			scroll *= 24/header.clientHeight;
-			scroll = Math.min(scroll, 24);
-			header.style.filter = `blur(${scroll}px)`;
-			header.style.top = `-${2*scroll}px`;
-			header.style.bottom = `-${2*scroll}px`;
-			header.style.left = `-${2*scroll}px`;
-			header.style.right = `-${2*scroll}px`;
-		}
-		setBlur();
-		window.addEventListener('scroll', setBlur);
-	</script>
-
-	<!-- For toggling the navbar on and off -->
-	<script>
-		let visible = false;
-		let navBar = document.getElementById("navBar");
-
-		if (document.documentElement.scrollTop > 0) {
-			visible = true;
-			navBar.setAttribute("transparent", "false");
-		}
-
-		window.addEventListener('scroll', function(event) {
-			if (document.documentElement.scrollTop <= 0) {
-				visible = false;
-				navBar.setAttribute("transparent", "true");
-			} else if (visible === false) {
-				visible = true;
-				navBar.setAttribute("transparent", "false");
-			}
-		});
-	</script>
 </body>
 </html>

@@ -1,0 +1,167 @@
+#music > h1 {
+	font-weight: 300;
+	text-align: center;
+}
+
+#music > hr {
+	width: 50%;
+	height: 0.25em;
+	margin-bottom: 2em;
+	border: none;
+	background-color: #333333;
+}
+
+#music > h2 {
+	margin: 1em 0;
+	text-align: center;
+	font-weight: 400;
+}
+
+
+.track-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.sc-widget { display: none; }
+
+.track {
+	overflow: hidden;
+	transition: box-shadow 0.1s;
+	position: relative;
+	margin: 1.5rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border: 0.05rem solid #a0a0a0e0;
+	z-index: 1;
+}
+
+.track > .track-background {
+	position: absolute;
+	top: -5px;
+	left: -5px;
+	right: -5px;
+	bottom: -5px;
+	z-index: -1;
+	filter: brightness(95%) blur(5px);
+
+	background-size: 250%;
+	background-position: center;
+}
+
+.track:hover { box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19); }
+
+.cover-art {
+	position: relative;
+	box-sizing: border-box;
+	width: 16rem;
+	height: 16rem;
+}
+
+.pause-play-button {
+	filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.3));
+	width: 5rem;
+	height: 5rem;
+	margin: 5.5rem;
+}
+
+.pause-play-button:hover {
+	filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.3)) brightness(90%);
+	cursor: pointer;
+}
+
+.pause-play-button:focus {
+	filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.3)) brightness(90%);
+	cursor: pointer;
+}
+
+.pause-play-button:active { filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.3)) brightness(88%); }
+
+.cover-art > .cover-art-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.cover-art > .progress-bar {
+	position: absolute;
+	height: 0.25em;
+	left: 0;
+	bottom: 0;
+	width: 0%;
+	background-color: transparent;
+	backdrop-filter: contrast(50%);
+}
+
+.title-text {
+	text-align: center;
+	margin: 1rem 0;
+}
+
+.title-text > a {
+	font-size: 1.5rem;
+	color: #e0e0e0;
+	font-weight: 300;
+	text-decoration: none;
+}
+
+.grey .title-text > a {
+	color: #C0C0C0;
+}
+
+.dark .title-text > a {
+	color: #808080;
+}
+
+.title-text > a:hover, .title-text > a:focus {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.grey .title-text > a:hover, .grey .title-text > a:focus {
+	color: #E0E0E0;
+}
+
+.dark .title-text > a:hover, .dark .title-text > a:focus {
+	color: #a0a0a0;
+}
+
+.latest-release {
+	margin: auto auto 5em;
+	max-width: 54rem;
+	height: 20rem;
+	width: 90%;
+}
+
+.soundcloud-logo {
+	filter: opacity(50%);
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+}
+
+.grey .soundcloud-logo {
+	filter: opacity(75%) invert();
+}
+
+.dark .soundcloud-logo {
+	filter: opacity(50%) invert();
+}
+
+.soundcloud-logo:hover, .soundcloud-logo:focus { filter: opacity(90%); }
+
+.grey .soundcloud-logo:hover, .grey .soundcloud-logo:focus { filter: opacity(100%) invert(); }
+
+.dark .soundcloud-logo:hover, .dark .soundcloud-logo:focus { filter: opacity(90%) invert(); }
+
+.soundcloud-logo > img {
+	height: auto;
+	width: 4rem;
+}
+
+.latest-release > iframe {
+	width: 100%;
+	height: 100%;
+}

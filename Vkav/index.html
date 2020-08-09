@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
-<header>
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-	<link rel="icon" type="image/png" href="/favicon.png">
+<head>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicons/favicon32x32.png" sizes="32x32">
+	<link rel="icon" href="/favicons/favicon48x48.png" sizes="48x48">
+	<link rel="icon" href="/favicons/favicon96x96.png" sizes="96x96">
+	<link rel="icon" href="/favicons/favicon144x144.png" sizes="144x144">
+
 	<link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="header.css">
 	<link rel="stylesheet" href="navBar.css">
-	<link rel="stylesheet" href="/footer.css">
+	<link rel="stylesheet" href="footer.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">
 
 	<!-- For the navigation bar -->
-	<script src="/navBar.js" type="text/javascript" defer></script>
+	<script src="navBar.js" type="text/javascript" defer></script>
 
 	<title>Vkav</title>
-</header>
+</head>
 
 <body>
 	<a id="top"></a>
@@ -24,11 +28,11 @@
 
 	<div id="navBar">
 		<button id="menu-button" onclick="toggleMenubar()">
-			<img src="/icons/menu.svg" height=100%>
+			<img src="/icons/expand-navbar.svg" height=100%>
 		</button>
-		<a href="/" class="logo">
-			<img src="/logo full.svg" alt="logo" height=100%>
-		</a>
+		<div id="navBar-left">
+			<a href="/">Dougal Stewart</a>
+		</div>
 		<div id="navBar-right">
 			<a href=#top>home</a>
 			<a href=#about>about</a>
@@ -45,7 +49,7 @@
 				Vkav is a highly configurable audio visualiser written in c++ for Linux.<br/>
 				Using Vulkan, it visualises audio from the desktop, or a user specified source, in real time.
 			</p>
-			<p>*Windows and MacOS support had not been implemented*</p>
+			<p>*Windows and MacOS support has not been implemented*</p>
 		</div>
 
 		<div name="features">

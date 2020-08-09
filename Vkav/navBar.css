@@ -8,6 +8,29 @@
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+#navBar a {
+	transition: color 0.2s;
+	outline: none;
+	float: left;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	padding: 0.9rem;
+	font-size: 1.2em;
+	line-height: 2.2rem;
+}
+
+#navBar-left {
+	padding: 0 0.9rem 0 0.9rem;
+	height: 4em;
+	float: left;
+}
+
+#navBar-left a {
+	font-size: 2rem;
+	font-weight: 300;
+}
+
 #menu-button {
 	display: none;
 }
@@ -23,27 +46,34 @@
 	line-height: 2.2rem;
 }
 
-#navBar a.logo {
-	height: 4em;
-}
-
-#navBar > a {
+#navBar-right a:after {
+	transition: width 0.1s, margin-left 0.1s, background 0.2s;
+	content: "";
 	float: left;
-	display: inline-block;
+	background: white;
+	border-radius: 0.2rem;
+	width: 0%;
+	height: 0.1rem;
+	margin-top: -0.2rem;
+	margin-left: 50%;
 }
 
-#navBar-right a:hover {
-	background-color: #424242;
+#navBar-right a:hover:after {
+	width: 100%;
+	margin-left: 0%;
 }
 
 #navBar-right {
+	padding: 0 0.9rem 0 0.9rem;
 	display: flex;
 	float: right;
 }
 
 #navBar-right > #navBar-highlighted {
-	color: rgb(40, 100, 200);
+	color: rgb(80,160,240);
 }
+
+#navBar-right > #navBar-highlighted:after { background: rgb(80,160,240); }
 
 @media screen and (max-width: 50em) {
 	/* Header/Navigation Bar */
