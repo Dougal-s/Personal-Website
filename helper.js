@@ -2,14 +2,40 @@
 const navbar = document.getElementById("sidebar")
 const media = window.matchMedia("(max-width: 900px)")
 
-function toggleNavbar() {
-	if (navbar.classList.contains("expanded")) navbar.classList.remove("expanded")
-	else navbar.classList.add("expanded")
+function openNavbar() {
+	navbar.classList.add("expanded")
+
+	navbar.children[1].classList.remove("displayed")
+	navbar.children[1].classList.add("hidden")
+
+	navbar.children[2].classList.add("displayed")
+	navbar.children[2].classList.remove("hidden")
 }
 
-navbar.children[1].addEventListener("click", toggleNavbar)
+function closeNavbar() {
+	navbar.classList.remove("expanded")
 
-media.addListener(() => { navbar.classList.remove("expanded") })
+	navbar.children[1].classList.add("displayed")
+	navbar.children[1].classList.remove("hidden")
+
+	navbar.children[2].classList.remove("displayed")
+	navbar.children[2].classList.add("hidden")
+}
+
+navbar.children[1].addEventListener("click", openNavbar)
+navbar.children[2].addEventListener("click", closeNavbar)
+
+media.addListener(() => {
+	if (!navbar.classList.contains("expanded")) return
+	navbar.classList.remove("expanded")
+
+	navbar.children[1].classList.add("displayed")
+	navbar.children[1].classList.remove("hidden")
+
+	navbar.children[2].classList.remove("displayed")
+	navbar.children[2].classList.add("hidden")
+})
+
 
 const navigation = document.getElementById("navigation")
 
@@ -62,7 +88,8 @@ function openPage(page) {
 	window.location.hash = page.id
 
 	// close navigation menu (only works on mobile)
-	navbar.classList.remove("expanded")
+	if (navbar.classList.contains("expanded"))
+	closeNavbar()
 }
 
 navigation.addEventListener("keydown", event => {
@@ -72,7 +99,6 @@ navigation.addEventListener("keydown", event => {
 			break;
 		case "ArrowRight":
 			let displayedPage = document.getElementsByClassName("page displayed")[0]
-			console.log(displayedPage)
 			displayedPage.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')[0].focus()
 			break;
 	}

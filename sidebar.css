@@ -16,7 +16,7 @@
 	justify-content: flex-start;
 }
 
-#toggle-navbar-btn {
+.toggle-navbar-btn {
 	transition: filter 0.5s;
 	filter: drop-shadow(0 0px 0px #000000ff) brightness(100%);
 
@@ -25,7 +25,7 @@
 
 	display: none;
 
-	padding: 0.5rem;
+	padding: 0.75rem;
 	height: 5rem;
 	top: 0;
 	right: 0;
@@ -35,11 +35,11 @@
 	outline: none;
 }
 
-#toggle-navbar-btn > img {
+.toggle-navbar-btn > img {
 	height: 100%;
 }
 
-#sidebar.expanded > #toggle-navbar-btn {
+.toggle-navbar-btn:active {
 	filter: drop-shadow(0 2px 3px #000000ff) brightness(130%);
 }
 
@@ -151,7 +151,7 @@
 
 @media screen and (max-width: 900px) {
 	#sidebar {
-		transition: height 1s;
+		transition: height 0.65s;
 		z-index: 10;
 		box-shadow: 0px -7px 17px 0px black;
 		overflow: hidden;
@@ -181,7 +181,47 @@
 		line-height: 5rem;
 	}
 
-	#toggle-navbar-btn {
-		display: block;
+	@keyframes rotatein {
+		from {
+			opacity: 0;
+			transform: rotateZ(-90deg);
+		} to {
+			opacity: 100;
+			transform: rotateZ(0deg);
+		}
+	}
+
+	@keyframes rotateout {
+		from {
+			opacity: 100;
+			transform: rotateZ(0deg);
+		} to {
+			opacity: 0;
+			transform: rotateZ(90deg);
+		}
+	}
+
+	#open-navbar-btn {
+		z-index: 1;
+		opacity: 100;
+	}
+
+	#close-navbar-btn {
+		z-index: 0;
+		opacity: 0;
+	}
+
+	.toggle-navbar-btn { display: block; }
+
+	#sidebar > .toggle-navbar-btn.hidden {
+		z-index: 0;
+		opacity: 0;
+		animation: rotateout 0.2s;
+	}
+
+	#sidebar > .toggle-navbar-btn.displayed {
+		z-index: 1;
+		opacity: 100;
+		animation: rotatein 0.2s;
 	}
 }
