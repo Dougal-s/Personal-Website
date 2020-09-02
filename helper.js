@@ -87,9 +87,11 @@ function openPage(page) {
 	page.scrollTop = 0
 	window.location.hash = page.id
 
+	document.title = "Dougal Stewart - " + page.id.charAt(0).toUpperCase() + page.id.slice(1)
+
 	// close navigation menu (only works on mobile)
 	if (navbar.classList.contains("expanded"))
-	closeNavbar()
+		closeNavbar()
 }
 
 navigation.addEventListener("keydown", event => {
