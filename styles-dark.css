@@ -1,0 +1,147 @@
+#sidebar {
+	background-color: #262626;
+}
+
+#navigation > li.selected {
+	background-color: #80ffff80;
+	color: #121212;
+}
+
+#navigation > li.selected:hover, #navigation > li.selected:focus {
+	background-color: #80ffff80;
+}
+
+#footer a {
+	color: #80ffff90;
+}
+
+#footer a:hover {
+	color: rgb(0, 196, 196);
+}
+
+
+#project-slideshow > img {
+	background-color: #707070;
+	opacity: 50%;
+}
+
+#project-slideshow > img:hover {
+	background-color: #505050;
+}
+
+#project-slideshow > #project-slides > .project-slide:hover > img, #project-slideshow > #project-slides > .project-slide:focus > img {
+	filter: blur(2px) brightness(30%) contrast(80%);
+}
+
+
+.page { background-color: #212121; }
+
+#home-text > h1 {
+	color: #e0e0e0;
+	font-weight: 400;
+}
+
+#home-text > p { color: #d0d0d0; }
+
+
+#projects > h1 { color: white }
+
+.project-card > .project-image > div:nth-child(2) {
+	background-color: #333333;
+}
+
+.project-card > .project-image > div:nth-child(3) {
+	background-color: #212121;
+}
+
+.project-card > .project-image > img {
+	filter: blur(1px) contrast(80%);
+}
+
+.project-card > .project-image:hover > img, .project-card > .project-image:focus > img {
+	filter: blur(3px) contrast(60%) brightness(50%) grayscale();
+}
+
+.project-card > .project-info > h2 {
+	color: #ffffff;
+}
+
+.project-card > .project-info > p {
+	color: #e0e0e0;
+	margin-top: 0.6em;
+	font-weight: 400;
+}
+
+.project-card > .project-info > ul > li > a {
+	color: #80ffff90;
+	text-decoration: none;
+}
+
+.project-card > .project-info > ul > li > a:hover {
+	color: rgb(0, 196, 196);
+}
+
+.project-card > .project-info > ul > li > a:visited {
+	text-decoration: underline;
+}
+
+#small-projects > h1 {
+	color: #c0c0c0;
+}
+
+.small-project-card {
+	background-color: #292929;
+}
+
+.small-project-info {
+	color: #a0a0a0;
+}
+
+.small-project-link {
+	color: #80ffff90;
+}
+
+.small-project-link:hover {
+	color: rgb(0, 196, 196);
+}
+
+.small-project-link:visited {
+	text-decoration: underline;
+}
+
+.small-project-info > h2 {
+	color: white;
+}
+
+
+#music > h1 {
+	color: #e0e0e0;
+}
+
+#music > h2 {
+	color: #d0d0d0;
+}
+
+
+#about > h1 {
+	color: #d0d0d0;
+}
+
+#about > h2 {
+	color: #c0c0c0;
+}
+
+#about > p {
+	color: #909090;
+}
+
+@media screen and (max-width: 900px) {
+
+	.project-card > .project-info > ul > li > a {
+		color: #60a0a0;
+	}
+
+	.project-card > .project-info > ul > li > a:hover {
+		color: rgb(0, 196, 196);
+	}
+}

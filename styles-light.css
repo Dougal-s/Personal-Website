@@ -1,0 +1,108 @@
+#sidebar {
+	box-shadow: -7px 0px 17px 0px black;
+	background-color: #212121;
+}
+
+#navigation > li:hover, #navigation > li:focus {
+	color: #ffffff;
+}
+
+#navigation > li.selected {
+	background-color: white;
+	color: black;
+}
+
+#navigation > li.selected:hover, #navigation > li.selected:focus {
+	background-color: white;
+}
+
+#footer a {
+	color: #398AF3;
+}
+
+#footer a:hover {
+	color: rgb(25.5, 102, 255);
+}
+
+
+#project-slideshow > img {
+	background-color: #b0b0b0;
+}
+
+#project-slideshow > img:hover {
+	background-color: #808080;
+}
+
+#project-slideshow > #project-slides > .project-slide:hover > img, #project-slideshow > #project-slides > .project-slide:focus > img {
+	filter: blur(2px) brightness(50%) contrast(80%);
+}
+
+
+.project-card > .project-image > div:nth-child(2) {
+	background-color: #909090;
+}
+
+.project-card > .project-image > div:nth-child(3) {
+	background-color: #ffffff;
+}
+
+.project-card > .project-image > img {
+	filter: blur(1px) contrast(70%);
+}
+
+.project-card > .project-image:hover > img, .project-card > .project-image:focus > img {
+	filter: blur(3px) contrast(60%) brightness(50%);
+}
+
+.project-card > .project-info > ul > li > a {
+	color: rgb(25.50, 102, 255);
+	text-decoration: none;
+}
+
+.project-card > .project-info > ul > li > a:hover {
+	color: rgb(12.75, 51, 255);
+}
+
+.project-card > .project-info > ul > li > a:visited {
+	text-decoration: underline;
+}
+
+.small-project-card {
+	border: 1px solid #a0a0a0a0;
+}
+
+.small-project-info {
+	color: #303030;
+}
+
+.small-project-link {
+	color: rgb(25.50, 102, 255);
+}
+
+.small-project-link:hover {
+	color: rgb(0, 45, 255);
+}
+
+.small-project-link:visited {
+	text-decoration: underline;
+}
+
+.small-project-info > h2 {
+	color: black;
+}
+
+
+.track {
+	border: 0.05rem solid #a0a0a0e0;
+}
+
+
+@media screen and (max-width: 900px) {
+	.project-card > .project-info > ul > li > a {
+		color: rgb(51, 153, 255);
+	}
+
+	.project-card > .project-info > ul > li > a:hover {
+		color: rgb(25.50, 102, 255);
+	}
+}

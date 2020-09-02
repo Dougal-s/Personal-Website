@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256">
+	<defs>
+		<linearGradient id="shadowGradient" x1="80" y1="124" x2="92.942604" y2="124" gradientUnits="userSpaceOnUse">
+			<stop style="stop-color:#000000;stop-opacity:0.1882353" offset="0" />
+			<stop style="stop-color:#000000;stop-opacity:0" offset="1" />
+		</linearGradient>
+		<linearGradient xlink:href="#shadowGradient" id="horizontalShadow" gradientTransform="matrix(1,0,0,1.0882353,0,15.058824)" />
+		<linearGradient xlink:href="#shadowGradient" id="verticalShadow" gradientTransform="matrix(1,0,0,1.0882353,-4,-288.94118)" />
+		<filter style="color-interpolation-filters:sRGB" id="filter1646" x="-0.048" y="-0.048" width="1.096" height="1.096">
+			<feGaussianBlur stdDeviation="3.92" />
+		</filter>
+	</defs>
+	<circle fill="#fdfeff" cx="128" cy="128" r="128" />
+	<rect style="fill:#000408;fill-opacity:0.50196078;filter:url(#filter1646)" width="196" height="196" x="34" y="31.999994" rx="8" ry="8" />
+	<rect fill="#fdfeff" width="196" height="196" x="32" y="28" rx="8" ry="8" />
+	<path fill="#212121" d="M 40,28 H 80 V 224 H 40 c -4.432,0 -8,-3.568 -8,-8 V 36 c 0,-4.432 3.568,-8 8,-8 z" />
+	<path fill="#101010" d="m 80,28 h 140 c 4.432,0 8,3.568 8,8 V 76 H 80 Z" />
+	<rect fill="url(#horizontalShadow)" width="148" height="148" x="80" y="76" />
+	<rect fill="url(#verticalShadow)" width="148" height="148" x="76" y="-228" transform="rotate(90)" />
+</svg>

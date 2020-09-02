@@ -1,14 +1,11 @@
 #sidebar {
-	box-shadow: -7px 0px 17px 0px black;
-
 	position: fixed;
 	left: 0;
 	top: 0;
+	z-index: 1;
 	bottom: 0;
 	width: 20vw;
 	min-width: 15em;
-
-	background-color: #212121;
 
 	display: flex;
 	flex-flow: column nowrap;
@@ -64,9 +61,6 @@
 	list-style: none;
 	padding: 1em 0;
 	margin: 2em 0;
-
-	background-color: #212121;
-
 }
 
 #navigation > li {
@@ -77,18 +71,11 @@
 
 #navigation > li:hover {
 	background-color: #424242;
-	color: #ffffff;
 }
 
 #navigation > li:focus {
 	outline-width: 0;
 	background-color: #424242;
-	color: #ffffff;
-}
-
-#navigation > li.selected {
-	background-color: white;
-	color: black;
 }
 
 #navigation > li.selected:focus {
@@ -137,15 +124,9 @@
 
 #footer a {
 	text-decoration: none;
-	color: rgb(51, 153, 255);
-}
-
-#footer a:hover {
-	text-decoration: underline;
 }
 
 #footer a:active, #footer a:visited {
-	color: rgb(25.50, 102, 255);
 	text-decoration: underline;
 }
 
