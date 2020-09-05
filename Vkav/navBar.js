@@ -1,8 +1,8 @@
 // For expanding hamburger menu
 const navBarRight = document.getElementById('navBar-right');
 function toggleMenubar() {
-	if (navBarRight.style.display == "") navBarRight.style.display = "flex";
-	else navBarRight.style.display = null;
+	if (navBar.classList.contains("expanded")) navBar.classList.remove("expanded");
+	else navBar.classList.add("expanded");
 }
 
 // Highlight correct navbar button

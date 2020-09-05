@@ -2,32 +2,32 @@
 	z-index: 65535;
 	position: sticky;
 	top: 0;
-	background-color: #212121;
+	height: 3em;
+	transition: height 0.2s;
+	background-color: #121212;
+	padding: 1em;
+	border-bottom: 0.125em #c0c0c0 solid;
 	overflow: hidden;
-	width: 100%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 #navBar a {
-	transition: color 0.2s;
-	outline: none;
-	float: left;
-	color: white;
 	text-decoration: none;
 	text-align: center;
-	padding: 0.9rem;
-	font-size: 1.2em;
-	line-height: 2.2rem;
 }
 
 #navBar-left {
-	padding: 0 0.9rem 0 0.9rem;
-	height: 4em;
 	float: left;
+	max-width: 60%;
+	height: 3em;
+	overflow: hidden;
 }
 
 #navBar-left a {
-	font-size: 2rem;
+	color: white;
+	font-family: Montserrat;
+	padding: 0 0.5em;
+	line-height: 1.5em;
+	font-size: 2em;
 	font-weight: 300;
 }
 
@@ -35,26 +35,30 @@
 	display: none;
 }
 
+#navBar-right {
+	font-family: Montserrat;
+	padding: 0.5em;
+	display: flex;
+	float: right;
+}
+
 #navBar-right a {
 	transition: color 0.2s;
-	float: left;
 	color: white;
-	text-decoration: none;
-	text-align: center;
-	padding: 0.9rem;
-	font-size: 1.2em;
-	line-height: 2.2rem;
+	padding: 0 0.75em;
+	line-height: 2em;
+	height: 2em;
 }
 
 #navBar-right a:after {
-	transition: width 0.1s, margin-left 0.1s, background 0.2s;
 	content: "";
+	transition: width 0.1s, margin-left 0.1s, background 0.2s;
 	float: left;
 	background: white;
-	border-radius: 0.2rem;
+	border-radius: 0.2em;
 	width: 0%;
-	height: 0.1rem;
-	margin-top: -0.2rem;
+	height: 0.125em;
+	margin-top: -0.25em;
 	margin-left: 50%;
 }
 
@@ -63,29 +67,14 @@
 	margin-left: 0%;
 }
 
-#navBar-right {
-	padding: 0 0.9rem 0 0.9rem;
-	display: flex;
-	float: right;
-}
 
 #navBar-right > #navBar-highlighted {
 	color: rgb(80,160,240);
 }
 
-#navBar-right > #navBar-highlighted:after { background: rgb(80,160,240); }
+#navBar-right > #navBar-highlighted:after { background-color: rgb(80,160,240); }
 
-@media screen and (max-width: 50em) {
-	/* Header/Navigation Bar */
-	#navBar > .logo > img {
-		display: block;
-	}
-
-	#navBar > .logo {
-		width: auto;
-		display: inline-block;
-	}
-
+@media screen and (max-width: 1000px) {
 	#menu-button {
 		/* undo defaults */
 		border: none;
@@ -95,31 +84,60 @@
 		outline: inherit;
 
 		background-color: rgba(0,0,0,0);
-		border: none;
 		margin: 0;
-		box-sizing: content-box;
 		display: block;
-		width: 4em;
-		height: 4em;
+		height: 3em;
 		float: right;
 	}
 
-	#menu-button:hover {
-		background-color: #414141FF;
+	#menu-button:hover, #menu-button:focus {
+		filter: brightness(130%) drop-shadow(1px 2px 3px black);
 	}
 
-	#navBar {
-		text-align: left;
+	#navBar.expanded {
+		height: 6em;
+	}
+
+	#navBar.expanded > #navBar-right{
+		display: flex;
+		margin-right: 100%;
 	}
 
 	#navBar-right {
 		display: none;
-		width: 100%;
 		float: left;
-		flex-direction: column;
 	}
 
 	#navBar-right a {
 		text-align: left;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	#navBar-right::before {
+		content: "";
+		height: 0.1em;
+		width: 100%;
+		background-color: #333333;
+	}
+
+	#navBar-right {
+		box-sizing: border-box;
+		flex-flow: column;
+		margin: 0;
+		width: 100%;
+	}
+
+	#navBar.expanded {
+		height: auto;
+	}
+
+	#navBar-right :first-child {
+		margin-top: 1em;
+	}
+
+	#navBar-right a {
+		box-sizing: border-box;
+		width: 100%;
 	}
 }

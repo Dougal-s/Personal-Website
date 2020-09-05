@@ -13,6 +13,10 @@
 	<link rel="stylesheet" href="footer.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">
 
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<!-- For the navigation bar -->
 	<script src="navBar.js" type="text/javascript" defer></script>
 
@@ -24,21 +28,22 @@
 	<div id="header">
 		<div id="header-image" style="background-image: url('/Project Images/Vkav.webp')"></div>
 		<h1 id="header-text">Vkav</h1>
+		<a id="header-scroll-down" href="#about"><svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" fill="white"/></svg></a>
 	</div>
 
 	<div id="navBar">
-		<button id="menu-button" onclick="toggleMenubar()">
-			<img src="/icons/expand-navbar.svg" height=100%>
-		</button>
 		<div id="navBar-left">
 			<a href="/">Dougal Stewart</a>
 		</div>
-		<div id="navBar-right">
+		<button id="menu-button" onclick="toggleMenubar()">
+			<img src="/icons/expand-navbar.svg" height=100%>
+		</button>
+		<nav id="navBar-right">
 			<a href=#top>home</a>
 			<a href=#about>about</a>
 			<a href=#features>features</a>
 			<a href=#downloads>download</a>
-		</div>
+		</nav>
 	</div>
 
 	<div id="content">
@@ -46,7 +51,7 @@
 			<a id="about" class="anchor"></a>
 			<h1>About</h1>
 			<p>
-				Vkav is a highly configurable audio visualiser written in c++ for Linux.<br/>
+				Vkav is a highly configurable cross platform audio visualiser written in c++.<br/>
 				Using Vulkan, it visualises audio from the desktop, or a user specified source, in real time.
 			</p>
 			<p>*Windows support has not been implemented*</p>
@@ -94,7 +99,7 @@
 		<div name="example">
 			<h1>Example</h1>
 			<div class="example-wrapper">
-				<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nyQR5YkTqo8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<iframe src="https://www.youtube-nocookie.com/embed/nyQR5YkTqo8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
 		</div>
 
