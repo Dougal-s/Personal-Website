@@ -134,16 +134,21 @@ div[name="downloads"] > pre {
 	margin: 2rem auto;
 	width: 30rem;
 	max-width: 80%;
-	height: 5rem;
+	line-height: 1.3em;
 	padding: 1rem;
 	text-align: left;
 	background-color: #212121;
-	border-radius: 2rem;
+	box-shadow: 3px 1px 20px #00000080;
+	border-radius: 1em;
 	overflow-x: auto;
 	overflow-y: hidden;
 }
 
-div[name="downloads"] > pre > a { color: white; }
+div[name="downloads"] > pre > a { color: #80a0f0; }
+div[name="downloads"] > pre > mark {
+	background-color: transparent;
+	color: #8294b7;
+}
 
 .install-links {
 	margin: 2rem;
@@ -165,7 +170,7 @@ div[name="downloads"] > pre > a { color: white; }
 	text-decoration: none;
 	padding: 1em 2em;
 	color: white;
-	background-color: #1e90ff;
+	background-color: #215b8c;
 }
 
 .install-links > li > a:hover {
