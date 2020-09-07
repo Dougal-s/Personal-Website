@@ -31,4 +31,4 @@ function highlightNavBarElem() {
 }
 
 highlightNavBarElem();
-window.addEventListener('scroll', highlightNavBarElem);
+window.addEventListener('scroll', highlightNavBarElem, {passive: true});
