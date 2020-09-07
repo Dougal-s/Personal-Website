@@ -42,10 +42,12 @@
 	grid-column-gap: 0.5em;
 }
 
-#footer-right > ul > li > a > img {
+#footer-right > ul > li > a > svg {
+	fill: white;
 	min-height: 16px;
 	min-width: 16px;
 	height: 1em;
+	width: 1em;
 }
 
 #footer-right > ul > li > a > span { line-height: 100%; }

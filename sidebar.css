@@ -108,9 +108,11 @@
 	grid-column-gap: 0.5em;
 }
 
-#footer > ul > li > a > img {
+#footer > ul > li > a > svg {
+	fill: white;
 	min-width: 16px;
 	min-height: 16px;
+	width: 1em;
 	height: 1em;
 }
 
