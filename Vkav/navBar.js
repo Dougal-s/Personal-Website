@@ -23,7 +23,7 @@ function highlightNavBarElem() {
 		let targetElem = document.getElementById(targetID);
 
 		if (isVisible(targetElem)) {
-			for (let child of navBarRight.children) child.id = null;
+			for (let child of navBarRight.children) child.id = "";
 			navBarRight.children[i].id = "navBar-highlighted";
 			break;
 		}
