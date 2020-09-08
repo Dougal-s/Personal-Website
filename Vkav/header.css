@@ -39,6 +39,7 @@
 }
 
 #header > #header-scroll-down {
+	fill: white;
 	position: relative;
 	width: 4em;
 	float: left;
