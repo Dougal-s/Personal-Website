@@ -31,18 +31,12 @@ h1 {
 	font-size: 3rem;
 }
 
-h2 {
-	font-weight: normal;
-}
-
 #content {
 	position: relative;
 	z-index: 1;
 	background-color: #000000;
 	color: white;
 	width: 100%;
-	padding: 0em;
-	margin: 0;
 }
 
 div[name="about"] {
@@ -191,13 +185,9 @@ div[name="downloads"] > pre > mark {
 		grid-row-gap: 2.5%;
 	}
 
-	div[name="features"] > div > div {
-		padding: 2em 2em;
-	}
+	div[name="features"] > div > div { padding: 2em 2em; }
 
-	div[name="example"] {
-		padding: 2em 0 5em;
-	}
+	div[name="example"] { padding: 2em 0 5em; }
 
 	.example-wrapper {
 		width: 100%;
