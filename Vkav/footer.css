@@ -58,3 +58,41 @@
 	color: rgb(25.50, 102, 255);
 	text-decoration: underline;
 }
+
+@media screen and (max-width: 430px) {
+
+	#footer-left {
+		text-align: center;
+		margin-top: 2em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#footer-right { margin: auto; }
+
+	#footer-right > ul > li { display: inline-block; }
+
+	#footer-right > ul > li > a > span {
+		display: none;
+	}
+
+	#footer-right > ul > li > a > svg {
+		transition: fill 0.2s;
+		fill: #b0b0b0;
+		width: 3em;
+		height: 3em;
+		padding: 1em;
+	}
+
+	#footer-right > ul > li:nth-child(1) > a > svg:hover {
+		fill: #ffffff;
+	}
+
+	#footer-right > ul > li:nth-child(2) > a > svg:hover {
+		fill: #1DA1F2;
+	}
+
+	#footer-right > ul > li:nth-child(3) > a > svg:hover {
+		fill: #fe5000;
+	}
+}
