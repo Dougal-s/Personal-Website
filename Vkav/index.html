@@ -161,7 +161,7 @@
 			header.style.height = `${scaleY}%`;
 			header.style.margin = `-${2*scroll}px`;
 		}
-		window.addEventListener('scroll', setBlur);
+		window.addEventListener('scroll', setBlur, {passive: true});
 	</script>
 </body>
 </html>
