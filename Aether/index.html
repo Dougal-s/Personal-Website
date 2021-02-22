@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Aether</title>
+		<meta name="description" content="Aether is a algorithmic reverb plugin based off of Cloudseed by Valdemar Erlingsson">
+
+		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="footer.css">
+
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+		<!-- For mobile -->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+
+	<body>
+		<div id="top-bar">
+			<div id="nav-bar">
+				<div></div>
+				<nav>
+					<a href="./"><h1>Aether</h1></a>
+				</nav>
+			</div>
+
+			<section id="header">
+				<img id="header-image" src="Aether.svg">
+			</section>
+		</div>
+
+		<main>
+			<div id="about">
+				<div></div>
+				<h1>About</h1>
+				<p>Aether is a free open source reverb plugin available as an LV2 for Linux</p>
+			</div>
+
+			<div id="more-info">
+				<a href="https://github.com/Dougal-s">
+					<svg><use href="/icons/social-icons.svg#github-icon"/></svg>
+					<p>View on Github</p>
+				</a>
+			</div>
+		</main>
+
+		<footer id="footer">
+			<div id="footer-content">
+				<div id="socials">
+					<ul>
+						<li><a href="https://github.com/Dougal-s"><svg><title>See my github</title><use href="/icons/social-icons.svg#github-icon" /></svg></a></li>
+						<li><a href="https://twitter.com/Hunter__Brock"><svg><title>See my twitter</title><use href="/icons/social-icons.svg#twitter-icon" /></svg></a></li>
+						<li><a href="https://soundcloud.com/hunter_brock"><svg><title>See my soundcloud</title><use href="/icons/social-icons.svg#soundcloud-icon" /></svg></a></li>
+					</ul>
+				</div>
+				<div id="author">
+					<p>Dougal Stewart</p>
+					<a href="mailto:dougal.koji@gmail.com">dougal.koji@gmail.com</a>
+				</div>
+			</div>
+		</footer>
+	</body>
+
+	<script>
+		let navbar = document.getElementById("nav-bar");
+		document.addEventListener('scroll', (e) => {
+			let alpha = Math.min(Math.max(0.4*window.scrollY-40, 0), 100);
+			navbar.style.boxShadow = "0 0 1em rgba(0,0,0," + alpha/100 + ")";
+		});
+	</script>
+</html>
