@@ -28,11 +28,75 @@
 	</defs>
 
 	<style type="text/css">
-		.light-dial {
-			--center-color: #33343b;
+		.light-dial { --center-color: #33343b; }
+		.dark-dial { --center-color: #1b1d23; }
+
+		@keyframes meter-bg-kf {
+			from { height: 0px; }
+			to { height: 300px; }
 		}
-		.dark-dial {
-			--center-color: #1b1d23;
+
+		.dry { --section-offset: 0s; }
+		.predelay { --section-offset: 0.15s; }
+		.erly-refl { --section-offset: 0.45s; }
+		.late-rev { --section-offset: 0.60s; }
+
+		.meter-bg.left { --timing-offset: 0s; }
+		.meter-bg.right { --timing-offset: 0.15s; }
+
+		.meter-bg {
+			animation-name: meter-bg-kf;
+			animation-duration: 0.45s;
+			animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+			animation-delay: calc(var(--timing-offset) + var(--section-offset));
+			animation-fill-mode: both;
+
+			fill: #1b1d23;
+		}
+
+		@keyframes meter-gain-kf {
+			from { opacity: 0%; }
+			to { opacity: 100%; }
+		}
+
+		.meter-gain {
+			animation-name: meter-gain-kf;
+			animation-duration: 0.75s;
+			animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+			animation-delay: calc(0.6s + var(--section-offset));
+			animation-fill-mode: both;
+		}
+
+		@keyframes mod-visual-kf {
+			from { transform: translateY(50px) scaleY(0) translateY(-50px); }
+			to { transform: translateY(50px) scaleY(1) translateY(-50px); }
+		}
+
+		.mod-visual > rect {
+			animation-name: mod-visual-kf;
+			animation-duration: 0.25s;
+			animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+			animation-fill-mode: both;
+			animation-delay: calc(0.65s + 0.04s * var(--child-num) + var(--section-offset));
+		}
+
+		.mod-visual > rect:nth-child(1) {--child-num: 1;}
+		.mod-visual > rect:nth-child(2) {--child-num: 2;}
+		.mod-visual > rect:nth-child(3) {--child-num: 3;}
+		.mod-visual > rect:nth-child(4) {--child-num: 4;}
+		.mod-visual > rect:nth-child(5) {--child-num: 5;}
+
+		@keyframes global-meter-bg-kf {
+			from { height: 0; }
+			to { height: 280px; }
+		}
+
+		.global-meter-bg {
+			animation-name: global-meter-bg-kf;
+			animation-duration: 0.45s;
+			animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+			animation-fill-mode: both;
+			animation-delay: 0.9s;
 		}
 	</style>
 
@@ -52,19 +116,61 @@
 
 	<g font-family="Roboto">
 		<rect height="100%" width="100%" fill="#101014"/>
-		<rect rx="1" ry="1"  y="308" x="0" height="2" width="1175" fill="#b6bfcc" fill-opacity="0.50196078"/>
+		<rect rx="1" ry="1"  y="308" x="0" height="2" width="1175" fill="#b6bfcc" fill-opacity="0.50196078">
+			<animate attributeName="width" dur="3s"
+				values="0;0;1175;1175"
+				keyTimes="0;0.0;0.5;1"
+				keySplines="0 0 0 0; 0.42 0 0.58 1; 0 0 0 0" calcMode="spline"/>
+		</rect>
 
 		<use id="mix-dial" class="dark-dial" xlink:href="#dial-small" transform="translate(1205,323.5)" x="-25" y="-25" width="50" height="50"/>
 
 		<g id="global-lvl-meters" transform="translate(1175,10)">
-			<rect fill="#33343b" width="5" height="280" x="15" y="0" rx="1" ry="1"/>
-			<rect fill="#33343b" width="5" height="280" x="22" y="0" rx="1" ry="1"/>
-			<rect fill="#33343b" width="5" height="280" x="33" y="0" rx="1" ry="1"/>
-			<rect fill="#33343b" width="5" height="280" x="40" y="0" rx="1" ry="1"/>
-			<rect fill="url(#linearGradient1320)" width="5" height="213.13374" x="22" y="66.866264" rx="1" ry="1"/>
-			<rect fill="url(#linearGradient1320)" width="5" height="147.88623" x="15" y="132.11377" rx="1" ry="1"/>
-			<rect fill="url(#linearGradient1320)" width="5" height="174.90366" x="40" y="105.09635" rx="1" ry="1"/>
-			<rect fill="url(#linearGradient1320)" width="5" height="166.84143" x="33" y="113.15857" rx="1" ry="1"/>
+			<rect class="global-meter-bg" fill="#33343b" width="5" height="280" x="15" y="0" rx="1" ry="1" />
+			<rect class="global-meter-bg" fill="#33343b" width="5" height="280" x="22" y="0" rx="1" ry="1" />
+			<rect class="global-meter-bg" fill="#33343b" width="5" height="280" x="33" y="0" rx="1" ry="1" />
+			<rect class="global-meter-bg" fill="#33343b" width="5" height="280" x="40" y="0" rx="1" ry="1" />
+
+			<rect fill="url(#linearGradient1320)" width="5" height="213" x="22" y="67" rx="1" ry="1">
+				<animate attributeName="height" dur="3s"
+					values="0;0;213;213"
+					keyTimes="0;0.45;0.60;1"
+					keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+				<animate attributeName="y" dur="3s"
+					values="280;280;67;67"
+					keyTimes="0;0.45;0.60;1"
+					keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+			</rect>
+			<rect fill="url(#linearGradient1320)" width="5" height="147" x="15" y="133" rx="1" ry="1">
+				<animate attributeName="height" dur="3s"
+					values="0;0;147;147"
+					keyTimes="0;0.45;0.60;1"
+					keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+				<animate attributeName="y" dur="3s"
+					values="280;280;133;133"
+					keyTimes="0;0.45;0.60;1"
+					keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+			</rect>
+			<rect fill="url(#linearGradient1320)" width="5" height="175" x="40" y="105" rx="1" ry="1">
+				<animate attributeName="height" dur="3s"
+					values="0;0;175;175"
+					keyTimes="0;0.45;0.60;1"
+					keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+				<animate attributeName="y" dur="3s"
+					values="280;280;105;105"
+					keyTimes="0;0.45;0.60;1"
+					keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+			</rect>
+			<rect fill="url(#linearGradient1320)" width="5" height="167" x="33" y="113" rx="1" ry="1">
+				<animate attributeName="height" dur="3s"
+					values="0;0;167;167"
+					keyTimes="0;0.45;0.60;1"
+					keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+				<animate attributeName="y" dur="3s"
+					values="280;280;113;113"
+					keyTimes="0;0.45;0.60;1"
+					keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+			</rect>
 		</g>
 
 		<g id="seeds" transform="translate(625,7.3177083)" style="fill:#c1c1c1;font-weight:300;font-size:18.666666px">
@@ -83,11 +189,29 @@
 			<text y="17" x="14" style="font-weight:300;font-size:17.333333px;fill:#b6bfcc">DRY</text>
 
 			<g id="dry-lvl" transform="translate(10,30)">
-				<path transform="translate(45,80)" d="M 0,5 -8.660254,0 0,-5 Z" fill="#b3b3b3" />
-				<rect fill="#1b1d23" width="10" height="300" x="5" y="0" rx="2" ry="2" />
-				<rect fill="#1b1d23" width="10" height="300" x="20" y="0" rx="2" ry="2" />
-				<rect fill="url(#linearGradient894)" width="10" height="173" x="5" y="127" rx="2" ry="2" />
-				<rect fill="url(#linearGradient894)" width="10" height="240" x="20" y="60" rx="2" ry="2" />
+				<path class="meter-gain dry" transform="translate(45,80)" d="M 0,5 -8.660254,0 0,-5 Z" fill="#b3b3b3" />
+				<rect class="meter-bg dry left" width="10" x="5" rx="2" ry="2" />
+				<rect class="meter-bg dry right" width="10" x="20" rx="2" ry="2" />
+				<rect fill="url(#linearGradient894)" width="10" height="173" x="5" y="127" rx="2" ry="2">
+					<animate attributeName="height" dur="3s"
+						values="0;0;173;173"
+						keyTimes="0;0.25;0.4;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+					<animate attributeName="y" dur="3s"
+						values="300;300;127;127"
+						keyTimes="0;0.25;0.4;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+				</rect>
+				<rect fill="url(#linearGradient894)" width="10" height="240" x="20" y="60" rx="2" ry="2">
+					<animate attributeName="height" dur="3s"
+						values="0;0;240;240"
+						keyTimes="0;0.25;0.45;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+					<animate attributeName="y" dur="3s"
+						values="300;300;60;60"
+						keyTimes="0;0.25;0.45;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+				</rect>
 			</g>
 
 			<rect fill="url(#linearGradient1017)" width="60" height="6" x="0" y="20" />
@@ -100,11 +224,29 @@
 			<text y="17" x="39" style="font-weight:300;font-size:17.333333px;fill:#b6bfcc">PREDELAY</text>
 
 			<g id="predelay-lvl" transform="translate(110,30)">
-				<path transform="translate(45,110)" d="M 0,5 -8.660254,0 0,-5 Z" fill="#b3b3b3" />
-				<rect fill="#1b1d23" width="10" height="300" x="5" y="0" rx="2" ry="2" />
-				<rect fill="#1b1d23" width="10" height="300" x="20" y="0" rx="2" ry="2" />
-				<rect fill="url(#linearGradient894)" width="10" height="180" x="5" y="120" rx="2" ry="2" />
-				<rect fill="url(#linearGradient894)" width="10" height="210" x="20" y="90" rx="2" ry="2" />
+				<path class="meter-gain predelay" transform="translate(45,110)" d="M 0,5 -8.660254,0 0,-5 Z" fill="#b3b3b3" />
+				<rect class="meter-bg predelay left" fill="#1b1d23" width="10" height="300" x="5" y="0" rx="2" ry="2" />
+				<rect class="meter-bg predelay right" fill="#1b1d23" width="10" height="300" x="20" y="0" rx="2" ry="2" />
+				<rect fill="url(#linearGradient894)" width="10" height="180" x="5" y="120" rx="2" ry="2">
+					<animate attributeName="height" dur="3s"
+						values="0;0;180;180"
+						keyTimes="0;0.3;0.45;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+					<animate attributeName="y" dur="3s"
+						values="300;300;120;120"
+						keyTimes="0;0.3;0.45;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+				</rect>
+				<rect fill="url(#linearGradient894)" width="10" height="210" x="20" y="90" rx="2" ry="2">
+					<animate attributeName="height" dur="3s"
+						values="0;0;210;210"
+						keyTimes="0;0.3;0.45;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+					<animate attributeName="y" dur="3s"
+						values="300;300;90;90"
+						keyTimes="0;0.3;0.45;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+				</rect>
 			</g>
 
 			<g id="crossover-ctrl" transform="translate(60,100)">
@@ -128,11 +270,29 @@
 			<text style="font-weight:300;font-size:17.333333px;fill:#b6bfcc" x="50" y="17">EARLY REFLECTIONS</text>
 
 			<g id="er-lvl" transform="translate(405,30)">
-				<path transform="translate(45,200)" d="M 0,5 -8.660254,0 0,-5 Z" style="fill:#b3b3b3" />
-				<rect fill="#1b1d23" width="10" height="300" x="5" y="0" rx="2" ry="2" />
-				<rect fill="#1b1d23" width="10" height="300" x="20" y="0" rx="2" ry="2" />
-				<rect fill="url(#linearGradient894)" width="10" height="90" x="5" y="210" rx="2" ry="2" />
-				<rect fill="url(#linearGradient894)" width="10" height="100" x="20" y="200" rx="2" ry="2" />
+				<path class="meter-gain erly-refl" transform="translate(45,200)" d="M 0,5 -8.660254,0 0,-5 Z" style="fill:#b3b3b3" />
+				<rect class="meter-bg erly-refl left" fill="#1b1d23" width="10" height="300" x="5" y="0" rx="2" ry="2" />
+				<rect class="meter-bg erly-refl right" fill="#1b1d23" width="10" height="300" x="20" y="0" rx="2" ry="2" />
+				<rect fill="url(#linearGradient894)" width="10" height="90" x="5" y="210" rx="2" ry="2">
+					<animate attributeName="height" dur="3s"
+						values="0;0;90;90"
+						keyTimes="0;0.4;0.55;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+					<animate attributeName="y" dur="3s"
+						values="300;300;210;210"
+						keyTimes="0;0.4;0.55;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+				</rect>
+				<rect fill="url(#linearGradient894)" width="10" height="100" x="20" y="200" rx="2" ry="2">
+					<animate attributeName="height" dur="3s"
+						values="0;0;100;100"
+						keyTimes="0;0.4;0.55;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+					<animate attributeName="y" dur="3s"
+						values="300;300;200;200"
+						keyTimes="0;0.4;0.55;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+				</rect>
 			</g>
 
 			<g id="taps-ctrl" transform="translate(47,60)">
@@ -158,7 +318,12 @@
 			<g id="er-eq" transform="translate(10,200)">
 				<rect fill="#1b1d23" width="150" height="105" x="0" y="0" rx="5" ry="5" />
 				<rect y="24.25" x="0" height="1" width="150" style="fill:#c1c1c1;fill-opacity:0.37647059" />
-				<rect ry="1.5" rx="1.5" fill="#c1c1c1" width="136.5" height="3" x="6.75" y="23.25" />
+				<rect ry="1.5" rx="1.5" fill="#c1c1c1" width="136.5" height="3" x="6.75" y="23.25">
+					<animate attributeName="width" dur="3s"
+						values="0;0;136.5;136.5"
+						keyTimes="0;0.35;0.50;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+				</rect>
 				<rect ry="5" rx="5" y="110" x="0" height="20" width="70" style="fill:#1b1d23" />
 				<rect fill="#1b1d23" width="70" height="20" x="80" y="110" rx="5" ry="5" />
 				<g style="font-weight:normal;font-size:17.33333px;line-height:20px;text-anchor:middle;fill:#c1c1c1">
@@ -196,7 +361,7 @@
 						<text style="font-weight:300;font-size:15px;text-align:center;text-anchor:middle;fill:#b6bfcc"
 								x="0" y="36">DEPTH</text>
 					</g>
-					<g id="er-diffus-delay-mod" transform="translate(25,260)" fill="#8c2e2e">
+					<g class="mod-visual erly-refl" transform="translate(25,260)" fill="#8c2e2e">
 						<rect x="0" y="0" width="4.8" height="50" />
 						<rect x="25" y="24.5" width="4.8" height="25.5" />
 						<rect x="50" y="37" width="4.8" height="13" />
@@ -225,11 +390,29 @@
 			<text style="font-weight:300;font-size:17.333333px;fill:#b6bfcc" x="50" y="17">LATE REVERBERATIONS</text>
 
 			<g id="lr-lvl" transform="translate(455,30)">
-				<path fill="#b3b3b3" d="M 0,5 -8.660254,0 0,-5 Z" transform="translate(45,150)" />
-				<rect ry="2" rx="2" y="0" x="5" height="300" width="10" fill="#1b1d23" />
-				<rect ry="2" rx="2" y="0" x="20" height="300" width="10" fill="#1b1d23" />
-				<rect ry="2" rx="2" y="120" x="5" height="180" width="10" fill="url(#linearGradient894)" />
-				<rect ry="2" rx="2" y="135" x="20" height="165" width="10" fill="url(#linearGradient894)" />
+				<path class="meter-gain late-rev" fill="#b3b3b3" d="M 0,5 -8.660254,0 0,-5 Z" transform="translate(45,150)" />
+				<rect class="meter-bg late-rev left" ry="2" rx="2" y="0" x="5" height="300" width="10" fill="#1b1d23" />
+				<rect class="meter-bg late-rev right" ry="2" rx="2" y="0" x="20" height="300" width="10" fill="#1b1d23" />
+				<rect ry="2" rx="2" y="120" x="5" height="180" width="10" fill="url(#linearGradient894)">
+					<animate attributeName="height" dur="3s"
+						values="0;0;180;180"
+						keyTimes="0;0.45;0.6;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+					<animate attributeName="y" dur="3s"
+						values="300;300;120;120"
+						keyTimes="0;0.45;0.6;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+				</rect>
+				<rect ry="2" rx="2" y="135" x="20" height="165" width="10" fill="url(#linearGradient894)">
+					<animate attributeName="height" dur="3s"
+						values="0;0;165;165"
+						keyTimes="0;0.45;0.6;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+					<animate attributeName="y" dur="3s"
+						values="300;300;135;135"
+						keyTimes="0;0.45;0.6;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+				</rect>
 			</g>
 
 			<g id="lr-delaylines-ctrl" transform="translate(373,65)">
@@ -245,7 +428,12 @@
 			<g id="lr-eq" transform="translate(295,200)">
 				<rect ry="5" rx="5" y="0" x="0" height="105" width="150" fill="#1b1d23" />
 				<rect style="fill:#c1c1c1;fill-opacity:0.37647059" width="150" height="1" x="0" y="24.25" />
-				<rect fill="#c1c1c1" width="136.5" height="3" x="6.75" y="23.25" rx="1.5" ry="1.5" />
+				<rect fill="#c1c1c1" width="136.5" height="3" x="6.75" y="23.25" rx="1.5" ry="1.5">
+					<animate attributeName="width" dur="3s"
+						values="0;0;136.5;136.5"
+						keyTimes="0;0.4;0.55;1"
+						keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+				</rect>
 				<rect fill="#1b1d23" width="43.333332" height="20" x="0" y="110" rx="5" ry="5" />
 				<rect fill="#1b1d23" width="43.333332" height="20" x="53.333332" y="110" rx="5" ry="5" />
 				<rect fill="#1b1d23" width="43.333332" height="20" x="106.66666" y="110" rx="5" ry="5" />
@@ -278,7 +466,7 @@
 					<text style="font-weight:300;font-size:15px;text-align:center;text-anchor:middle;fill:#b6bfcc"
 							x="0" y="36">DEPTH</text>
 				</g>
-				<g id="g1364" transform="translate(25,90)" fill="#8c2e2e">
+				<g class="mod-visual late-rev" transform="translate(25,90)" fill="#8c2e2e">
 					<rect x="0" y="0" width="4.8" height="50" />
 					<rect x="25" y="24.5" width="4.8" height="25.5" />
 					<rect x="50" y="37" width="4.8" height="13" />
@@ -314,7 +502,7 @@
 					<text style="font-weight:300;font-size:15px;text-align:center;text-anchor:middle;fill:#b6bfcc"
 							x="0" y="36">DEPTH</text>
 				</g>
-				<g id="g1523" transform="translate(25,90)" fill="#8c2e2e">
+				<g class="mod-visual late-rev" transform="translate(25,90)" fill="#8c2e2e">
 					<rect x="0" y="0" width="4.8" height="50" />
 					<rect x="25" y="24.5" width="4.8" height="25.5" />
 					<rect x="50" y="37" width="4.8" height="13" />
@@ -329,7 +517,13 @@
 				<text style="font-weight:300;font-size:17.333333px;fill:#b6bfcc;dominant-baseline:middle;text-anchor:middle" x="250" y="25">6</text>
 			</g>
 
-			<text style="font-weight:normal;font-size:17.333333px;fill:#b6bfcc" x="410" y="17">PRE</text>
+			<text style="font-weight:normal;font-size:17.333333px" x="410" y="17">
+				<animate attributeName="fill" dur="3s" fill="freeze"
+					values="#1b1d23;#1b1d23;#b6bfcc;#b6bfcc"
+					keyTimes="0;0.35;0.5;1"
+					keySplines="0 0 0 0; 0.47 0 0.745 0.715; 0 0 0 0" calcMode="spline"/>
+				PRE
+			</text>
 			<text style="font-weight:normal;font-size:17.333333px;fill:#1b1d23" x="452" y="17">POST</text>
 
 			<rect fill="url(#linearGradient1017)" width="229.5" height="6" x="275.5" y="20" />
