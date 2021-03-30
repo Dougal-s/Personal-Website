@@ -249,10 +249,10 @@
 				</rect>
 			</g>
 
-			<g id="crossover-ctrl" transform="translate(60,100)">
+			<g id="width-ctrl" transform="translate(60,100)">
 				<use class="light-dial" xlink:href="#dial-big" x="-25" y="-25" width="50" height="50"/>
 				<text style="font-weight:300;font-size:16px;text-align:center;text-anchor:middle;fill:#b6bfcc"
-						x="0" y="40.799999">CROSSOVER</text>
+						x="0" y="40.799999">WIDTH</text>
 			</g>
 			<g id="predelay-ctrl" transform="translate(60,215)">
 				<use class="light-dial" xlink:href="#dial-big" x="-25" y="-25" width="50" height="50"/>
